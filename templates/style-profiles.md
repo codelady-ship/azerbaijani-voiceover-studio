@@ -24,7 +24,7 @@ Measured on 2026-11-09 from a 19.7 s Azerbaijani promo Reel line (37 words, ≈ 
 Pitch figures are estimates (± octave errors are possible); pace, pauses and loudness are direct measurements.
 
 **Style line (paste into the engine):**
-> Read in Azerbaijani with a native Baku accent. Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, a clear pause after each sentence. Questions rise on the last word. Short commands are firm and falling. Slow down slightly and stress the call-to-action word.
+> Read in Azerbaijani with a native Baku accent. Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, a clear pause after each sentence. Yes/no questions rise at the end; wh-questions stress the question word. Short commands are firm and falling. Slow down slightly and stress the call-to-action word.
 
 **Word budget:** seconds × 1.9 = words (15 s ≈ 28, 20 s ≈ 38, 30 s ≈ 57, 45 s ≈ 85, 60 s ≈ 114). Keep 0.5 s free at the start and end.
 

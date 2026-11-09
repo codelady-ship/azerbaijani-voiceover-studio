@@ -87,8 +87,17 @@ You turn Azerbaijani text into a voiceover script that a **free** text-to-speech
 
 - Full stop = clear pause (≈ 0.4 s). Comma = light pause (≈ 0.15–0.2 s). Use a comma where a speaker breathes, even if grammar doesn't need one (split a long hook after ≈ 5–7 words).
 - Dramatic pause: a dash ("Dayan — ...") or a one-word sentence ("Dayan."). Ellipsis "…" for hesitation (ElevenLabs reads it as a pause).
-- Questions end with `?` and stay short so the final rise is clear.
+- Questions end with `?` and stay short. **Yes/no questions** (with or without -mı) rise at the end with a slightly longer last vowel; **wh-questions** (nə, kim, niyə, harada) do not rise much: the question word is said strongly, so put it early.
 - Call-to-action: put the key word between light pauses ("Şərhə, SCAM, yaz.") only if the style needs emphasis; otherwise keep it simple.
+
+## Orthoepy and lively speech
+
+Source: the official *Azərbaycan dilinin orfoepiya normaları* (Cabinet of Ministers Decision No. 175, 2021). Keep **standard spelling** in the TTS text (subtitles must match); use these rules to write natural sentences and to **listen** for errors. Respell a single word only as a last-resort fix.
+- **Stress:** mostly the last syllable, moving with suffixes (kitáb → kitablár). Loanwords keep source stress (fáktor). Vocatives move it earlier (Və́tən!). Unstressed, so stress falls before them: negative -ma/-mə (gə́lmə, bílmədi; but future negative is stressed: bilmə́rəm), question -mı, -dır, -am/-san, idi/-dı, imiş, isə/-sa, -kən, -ca/-cə, -la, -gil, -ov/-yev. Adverbs/question words with early stress (sonra, indi, bəlkə, niyə): commonly heard but **unverified**; test both.
+- **Correct readings to listen for:** final q in native words → [x] (qonaq [qonax]); final k → soft [x'] (çörək [çörəx'], before a vowel [y]: çörəyi); one-syllable words and Arabic/Persian loans keep k (tək, mübarək); doubles are long (amma, ləzzət; səkkiz [səkgiz]); -dır → [-dı] in speech; Arabic long vowels (saat [sa:t], məna [mə:na]); -dan after m/n → [-nan] (məndən [mənnən]). A hard Turkish k, a g/k for final q, or shortened long vowels mean: change voice/engine → Azure `<phoneme>` → respell that word only.
+- **Lively rhythm:** one idea per sentence (≈ 6–12 words); **one emphasised word per sentence** (number, offer or action); colloquial connectors (amma, yəni, bax, axı, deməli) at most one per 2–3 sentences and never in news/formal text (no style guide exists: use sparingly).
+- **Per engine:** Gemini: add "natural conversational rhythm, not read-aloud; emphasise: <words>" to the style line. ElevenLabs v3: 1–3 tags per Reel ([excited], [curious] for questions), CAPS on one word, "…" for pauses, Stability Natural/Creative. Azure: no speaking styles for az-AZ; use per-sentence `<prosody>` (hook +4–8 % pitch, key word `<prosody pitch="+10%" rate="-5%">`, ending −2 %) and `<break>`; `<emphasis>` may be ignored.
+Full table with sources: `templates/orthoepy-and-liveliness.md`.
 
 ## Style: default Codelady / Nora profile (measured)
 
@@ -100,7 +109,7 @@ Measured with ffmpeg on a 19.7 s Azerbaijani promo voiceover (37 words). It **de
 - Feel: warm, confident, friendly explainer with a slight smile; punchy short sentences.
 
 **Style line** (use in Gemini and as the ElevenLabs direction):
-`Azerbaijani with a native Baku accent (not Turkish). Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, clear pause after each sentence. Questions rise on the last word. Short commands are firm and falling.`
+`Azerbaijani with a native Baku accent (not Turkish). Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, clear pause after each sentence. Yes/no questions rise at the end; wh-questions stress the question word. Short commands are firm and falling.`
 
 ## Voice presets (seç: 1–10)
 
@@ -182,6 +191,7 @@ Ask the user to listen for, and fix:
 - **q → k, x → h (Turkish accent)** → same line + "Azerbaijani q and x"; change voice; if it persists, switch engine (Azure always uses Azerbaijani phonemes; ElevenLabs `[strong Azerbaijani accent]`).
 - **Numbers or symbols read oddly** → a digit or symbol was left: normalise again.
 - **Wrong stress** (most words stress the last syllable; negative verbs stress the syllable before -ma/-mə) → respell, rephrase or split the word.
+- **Final q/k, long vowels, double consonants wrong** (qonaq not [qonax], çörək with a hard k, saat short) → change voice/engine; Azure `<phoneme>`; last resort respell that word in the TTS text only.
 - **Brand misread** → respell (Ayfon) or remove.
 - **Pauses unnatural** → join or split sentences; commas for short pauses; Azure `<break>`.
 - **Question sounds flat** → shorter question ending in "?"; "questions rise on the last word"; ElevenLabs [curious]; Azure pitch +12 % on the last word.

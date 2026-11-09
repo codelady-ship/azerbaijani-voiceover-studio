@@ -42,8 +42,9 @@ Research-driven features. See `docs/research.md`.
   - celebrity or blogger voice: refused, with the closest preset or consented own-voice cloning offered instead
   - Azure "robotic": tuned SSML
   - AI disclosure line for social, ad and client use
+- **Orthoepy and lively speech** (`templates/orthoepy-and-liveliness.md`, SKILL.md section), sourced from the official 2021 *orfoepiya normaları*: stress and unstressed suffixes, yes/no vs wh-question intonation, final q/k, double consonants, long vowels, assimilations; rhythm and per-engine liveliness techniques; unverified items marked.
 - `examples/`: 30 s Reel with numbers (female), café ad typed without diacritics (male, commercial), Cyrillic lesson split into chunks.
-- `docs/research.md`, `tests/evals.md` (20 cases), `README.md` in English with an Azerbaijani section.
+- `docs/research.md`, `tests/evals.md` (21 cases), `README.md` in English with an Azerbaijani section.
 
 ## [0.1.0] - 2026-11-09
 

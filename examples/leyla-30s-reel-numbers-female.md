@@ -33,7 +33,7 @@ Son 3,5 saniyə son kart (logo, link) üçün boş qalır.
 **Gemini (AI Studio):** 1) aistudio.google.com → Generate speech. 2) Səs: Sulafat (kişi variantı: Charon). Bloku yapışdır. 3) Run → dinlə → yüklə.
 
 ```
-Azerbaijani with a native Baku accent (not Turkish). Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, clear pause after each sentence. Questions rise on the last word. Short commands are firm and falling:
+Azerbaijani with a native Baku accent (not Turkish). Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, clear pause after each sentence. Yes/no questions rise at the end; wh-questions stress the question word. Short commands are firm and falling:
 Bilirdinmi? Azərbaycanda iki min iyirmi beşinci ildə bir milyon iki yüz min nəfər onlayn kursa yazılıb. Amma onların yetmiş faizi kursu bitirmir. Səbəb? Plan yoxdur. Bizim dörd həftəlik planla hər gün cəmi iyirmi dəqiqə ayır. Qeydiyyat bir dekabra qədər pulsuzdur. Linki bioda tap!
 ```
 

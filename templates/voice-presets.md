@@ -31,7 +31,7 @@ Engine notes:
 - **Pitch/energy:** medium-high, about an octave of range. Warm and confident, with a slight smile.
 - **Intonation:** statements start high and fall at the full stop. Yes/no hooks rise on the last syllable (about +5 semitones). One-word commands ("Dayan.") are short and falling. The CTA word is lightly framed by pauses.
 - **Best for:** explainer Reels, tips, product and service intros, educational promos.
-- **Gemini** (Sulafat, or Kore): `Azerbaijani with a native Baku accent (not Turkish). Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, clear pause after each sentence. Questions rise on the last word. Short commands are firm and falling.`
+- **Gemini** (Sulafat, or Kore): `Azerbaijani with a native Baku accent (not Turkish). Warm, confident, friendly explainer with a slight smile. Brisk but clear pace, about 110–115 words per minute. Short pause after commas, clear pause after each sentence. Yes/no questions rise at the end; wh-questions stress the question word. Short commands are firm and falling.`
 - **ElevenLabs** (Matilda or Sarah): `[curious]` on the hook question and `[excited]` on the payoff line. Use "…" sparingly. Stability: Natural. Speed: 1.0.
 - **Azure Banu:** `rate="+5%" pitch="+4%"` on the hook, `+3% / 0%` on the body. `<break time="400ms"/>` after sentences, `180ms` at commas. `pitch="+12%"` on the last word of a question.
 - **Sample:** "Təqaüdə seçildiyin barədə mesaj gəlib? Dayan. Əvvəlcə rəsmi saytı yoxla."

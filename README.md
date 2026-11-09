@@ -45,6 +45,7 @@ No existing voiceover skill handles Azerbaijani. The ones on skill marketplaces 
   - Azure SSML (az-AZ-BanuNeural / BabekNeural)
 - **Reel timing.** A word budget for 15, 30 or 60 seconds, a cut version if your script is too long, and scene timings per line.
 - **Long texts** are split into chunks under each engine's limit, with a duration for every chunk.
+- **Orthoepy-aware.** Stress, question intonation and correct readings (final q/k, long vowels, double consonants) follow the official 2021 Azerbaijani orthoepy norms, with tips per engine to make the voice sound lively.
 - **Listening checklist** with a fix for each problem: ə/e, ı/i, q/k, x/h, wrong stress, misread brands, unnatural pauses, flat questions, pace, loudness.
 - **Honest rules.**
   - It says which free tiers forbid commercial use.
@@ -72,7 +73,9 @@ Changes: Cay → Çay · cemi → cəmi · + → və · 4,50 AZN → dörd manat
 
 ## Pricing
 
-**Free.** A standalone skill with no paid tier, no gated features and no checkout link.
+**Free, and it will stay free.** It's a standalone skill with no paid tier, no gated features and no checkout link. It's for video makers, SMM specialists, teachers, small businesses and anyone in Azerbaijan who needs a voiceover.
+
+Issues and pull requests are welcome, especially new abbreviations, pronunciation fixes and engine updates.
 
 ## Installation
 
@@ -83,10 +86,12 @@ git clone https://github.com/codelady-ship/azerbaijani-voiceover-studio.git
 cp -r azerbaijani-voiceover-studio ~/.claude/skills/azerbaijani-voiceover-studio
 ```
 
-### Claude app (web, desktop, iOS, Android)
+### Claude app (web, desktop, iOS, Android): works on the Free plan
+
+Per Anthropic's help centre (checked 2026-11-09): "Skills are available for users on Free, Pro, Max, Ultra, Team, and Enterprise plans" and they require code execution to be on ([support.claude.com/en/articles/12512198](https://support.claude.com/en/articles/12512198)). Claude Code needs a paid subscription or an API/Console account.
 
 1. Turn on **Code execution** under **Settings > Capabilities** (skills need it).
-2. Build the package with `./scripts/build-agensi-zip.ps1`, or zip the folder so that `SKILL.md` sits inside it.
+2. On this GitHub page, tap **Code → Download ZIP**. The ZIP must contain the skill folder at its root, with `SKILL.md` inside it. Maintainers can build the clean package with `./scripts/build-agensi-zip.ps1`.
 3. Go to **Customize > Skills**, click **+**, choose **Upload a skill**, and upload the zip.
 4. Turn the skill on and start a chat: "Bu mətni səsləndirməyə hazırla: …"
 
@@ -107,10 +112,10 @@ This writes `dist/azerbaijani-voiceover-studio.zip`, which contains only `SKILL.
 | Path | Purpose |
 |---|---|
 | `SKILL.md` | The skill |
-| `templates/` | Voice presets, normalisation cheat sheet, engine blocks, style profiles, split template, listening checklist |
+| `templates/` | Voice presets, orthoepy and liveliness rules, normalisation cheat sheet, engine blocks, style profiles, split template, listening checklist |
 | `examples/` | Three worked examples in Azerbaijani |
 | `docs/research.md` | Customer problems, competitors, engines, measurement |
-| `tests/evals.md` | 20 eval cases |
+| `tests/evals.md` | 21 eval cases |
 | `scripts/build-agensi-zip.ps1` | Builds the upload package |
 
 ## Limitations

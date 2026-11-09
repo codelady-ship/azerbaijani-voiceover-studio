@@ -1,6 +1,6 @@
 # Research summary
 
-Condensed copy of the project research (2026-11-09). Must-have features map to `SKILL.md` sections and to `tests/evals.md` cases VO-1 to VO-20.
+Condensed copy of the project research (2026-11-09). Must-have features map to `SKILL.md` sections and to `tests/evals.md` cases VO-1 to VO-21.
 
 Researched 2026-11-09 (web research, official pages where possible, plus ffmpeg measurement of our own reference file). Nothing was signed up for, bought or published. **[unverified]** marks claims without an official or first-hand source.
 
@@ -120,6 +120,43 @@ The profile describes delivery only. The voice is a library preset (ElevenLabs f
   - "faiz" preferred over "yüzdə".
   - Phone-group reading.
   - The acronym letter-name convention.
+
+## 6. Orthoepy and intonation (sources for `templates/orthoepy-and-liveliness.md`)
+
+- **ON**: *Azərbaycan dilinin orfoepiya normaları*, Cabinet of Ministers Decision No. 175, 18 June 2021. https://nk.gov.az/uploads/doc/docs/old/39d505897d2486a4e586e85076392522.pdf
+  - **Stress:**
+    - final, and moves with suffixes (§6.1)
+    - loanwords keep their stress (§6.2)
+    - stress can change the meaning (§6.3)
+    - unstressed suffixes (§6.4.1–6.4.6): -ma/-mə (except future negative), -mı, -dır and the person endings (except in the conditional and the simple past), idi/imiş/isə, -kən, -ca, -la, -gil, -ov/-yev
+    - vocative (§6.5)
+  - **Final q/k:**
+    - q → [x] in native polysyllables (§3.11)
+    - k → [x'] in native polysyllables (§3.12); the norm writes "çörək [çörəx]"; [y] appears only before a vowel
+    - monosyllables and Arabic/Persian loans keep k
+  - **Consonants:**
+    - doubles pronounced long; kk/pp/tt → second consonant voiced; qq → [k'q]; -iyyat → single y (§3.2–3.6)
+    - final b/c/d/g devoiced (§3.10)
+    - n before b/m → [m] (§3.8)
+  - **Suffixes:** -dır → [-dı] (§4.1), -sınız → [-sız] (§4.2), -la/ilə/-dan → [-nan] (§4.3–4.4, 4.10), l-suffix assimilation (§4.6), -lıq/-lik etc. (§4.8–4.9)
+  - **Vowels:** Arabic long vowels (§2.2–2.3); a/ə raised before a y-suffix (§4.5)
+- **Stress statistics:** G. Vəliyeva, *Filologiya məsələləri* 2024 no. 1 (72.1 % final stress in a 3,000-word sample). https://filologiyameseleleri.com/pdf/2024/n1/243.pdf
+- **Questions:** Yoshimura & Guliyeva, *Azerbaijani Grammar Textbook*, ILCAA / Tokyo University of Foreign Studies, 2023, pp. 3, 19–20. https://publication.aa-ken.jp/azerbaijani_grammar_textbook_ilc2022.pdf
+  - Yes/no questions take -mı, or have no particle and a raised final intonation with a slightly lengthened last vowel. The form without -mı is far more common in speech.
+  - Wh-questions are "not so rising", and the question word is pronounced strongly.
+  - Place names and loanwords have their own fixed stress.
+- **Supporting:**
+  - az.wikipedia "Vurğu" (unstressed -ma, -mı, -la, -sa): https://az.wikipedia.org/wiki/Vurğu
+  - az.wikibooks "Fonetik norma" (final k → x'): https://az.wikibooks.org/wiki/Azərbaycan_dili/Fonetik_norma
+- **Unverified:**
+  - early stress on sonra, indi, bəlkə, hələ, niyə, necə (blogs only)
+  - the exact pitch-peak position in yes/no questions (Axundov 1998 is not online)
+  - gəlsin → [gəssin]
+  - style guidance on colloquial connectors (no prescriptive source; Aslanova 2025 covers discourse markers descriptively)
+  - Azure `<emphasis>` support for az-AZ voices
+- **Correction to the owner's brief:**
+  - "çörək ~ çörəy" is not the norm: standalone it is [çörəx'], and [y] appears only before a vowel (çörəyi).
+  - "-mı rises on the particle": the particle is unstressed. The source only says the end of the question rises, so the skill says "rise at the end".
 
 ## Sources
 
