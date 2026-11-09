@@ -54,6 +54,13 @@ Research-driven features. See `docs/research.md`.
 - Complaints about k or q state both norms.
 - Clarified: default preset by purpose, reply language for text-only messages, names kept and flagged, when the commercial line is required, the colon after the style line.
 
+### Fixed (blind evals, runs 2–4)
+- Long sentences are split only at an existing comma or conjunction. No words are added or dropped, and suffixes are kept.
+- k/q pronunciation complaints always get the full fix ladder: voice/engine → Azure phoneme → respell one word as a last resort.
+- Answers with no text show a labelled sample instead of an invented voiceover; partial long texts are prepared as chunk 1 and the rest is requested.
+- Clarified: default preset by purpose (including Reels); the closest preset for a clone request is chosen by the user's own genre; the Gemini voice list is completed; commercial-line triggers are aligned; the disclosure is written in the audience's language.
+- Blind eval result: 21/21 (run 5, fresh executor reading only SKILL.md, separate grader).
+
 ## [0.1.0] - 2026-11-09
 
 ### Added
