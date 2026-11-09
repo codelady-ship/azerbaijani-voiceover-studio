@@ -46,6 +46,14 @@ Research-driven features. See `docs/research.md`.
 - `examples/`: 30 s Reel with numbers (female), café ad typed without diacritics (male, commercial), Cyrillic lesson split into chunks.
 - `docs/research.md`, `tests/evals.md` (21 cases), `README.md` in English with an Azerbaijani section.
 
+### Fixed (blind evals, run 1)
+- Paste blocks contain only engine input; the steps sit outside the block, so no URL or digits get pasted into the TTS box.
+- Colons and labels are removed from the TTS text, and a final self-check scans for digits, symbols and emoji.
+- When both voices are requested: one block per voice, each with its own style line.
+- A budget line with calm and energetic ranges is always printed; scene timings no longer count pauses twice.
+- Complaints about k or q state both norms.
+- Clarified: default preset by purpose, reply language for text-only messages, names kept and flagged, when the commercial line is required, the colon after the style line.
+
 ## [0.1.0] - 2026-11-09
 
 ### Added
