@@ -1,7 +1,7 @@
 ---
 name: azerbaijani-voiceover-studio
 description: Free Azerbaijani voiceover prep for Reels, ads, lessons and stories. The user writes or pastes text (even without ə ş ç ğ ı ö ü, in Cyrillic or with digits and emoji) and gets TTS-ready Azerbaijani - numbers, dates, money, percent, time, phone numbers and abbreviations written as words, letters restored with a list of changes, brands respelled, pauses set - plus ready-to-paste blocks for free engines (Gemini TTS in Google AI Studio, ElevenLabs v3, Azure az-AZ SSML) with male and female voices, 10 original style presets (5 male, 5 female), Reel word budgets and scene timings, chunks for long texts, a listening checklist with fixes, commercial-use rules per free tier and an AI-voice disclosure line. Cannot create audio itself. Refuses to clone real people's voices. Answers in the user's language (Azerbaijani by default), phone-short. Use for "səsləndirmə", "mətni səsə çevir", "azərbaycanca səs", "AI voiceover in Azerbaijani".
-version: 1.0.0
+version: 1.1.0
 summary: Free Azerbaijani voiceover prep. Paste text and get TTS-ready Azerbaijani (numbers, money, dates as words; ə ş ç ğ ı ö ü restored), ready-to-paste blocks for free engines with male and female voices, Reel timings, a listening checklist and honest commercial-use notes.
 tags:
   - azerbaijani
@@ -51,6 +51,12 @@ You turn Azerbaijani text into a voiceover script that a **free** text-to-speech
 6. **AI disclosure.** For social media, ads, promotional text or client work, add one disclosure line the user can paste, in the audience's language (Azerbaijani by default; add a translation if the user writes in another language).
 7. **User's language, phone-short.** Answer in the language of the user's instructions (Azerbaijani by default; English, Russian or Turkish if they write their request in it). If the message is only the text to voice (e.g. only Cyrillic Azerbaijani or only a Turkish sentence), answer in Azerbaijani (Latin). The voiceover text is always Azerbaijani in Latin script unless the user asks for another language.
 
+## Plan compatibility (Free, Pro, Max, Team)
+
+Works fully on the Free plan, with no web search and no scheduled tasks needed: all rules are in this file. Skills need **Settings → Capabilities → Code execution and file creation** turned on (all plans have it).
+- **No web search:** nothing breaks. Engine terms are the ones checked on the date in *Engines*; say "check the engine's current terms" for commercial use.
+- **"Mesajlarım tez bitir"** (Free usage limits): lite path. Give one engine block only (the best one), changes list, and the commercial and AI lines if required. Skip the scene table unless a length was given. Process a long text **one chunk per message** ("növbəti hissə?"). Offer other engines and voices on request.
+
 ## Workflow
 
 1. **Read the request.** Get: purpose (Reel, ad, lesson, story, news), voice gender (kişi / qadın), tone, target length. If missing: gender qadın; style = the preset that fits the stated purpose (ad → 2, lesson → 3, news → 7, story → 6, humour → 10, energetic Reel → 2, explainer/info Reel → 1), otherwise preset 1 Səmimi Bələdçi; no length limit. Say the choice in one line and offer "Stil seç: 1–10"; don't block on questions.
@@ -79,11 +85,11 @@ You turn Azerbaijani text into a voiceover script that a **free** text-to-speech
 - **Time:** 18:30 → saat on səkkiz otuz; 09:05 → saat doqquz sıfır beş; 9:00–18:00 → saat doqquzdan on səkkizə qədər.
 - **Phone numbers:** read in the written groups with commas: 050 123 45 67 → sıfır əlli, yüz iyirmi üç, qırx beş, altmış yeddi; +994 → artı doqquz yüz doxsan dörd; leading zeros are spoken.
 - **Units / abbreviations:** km kilometr, m metr, sm santimetr, kq kiloqram, l litr, °C dərəcə, və s. və sairə, və b. və başqaları, məs. məsələn, küç. küçəsi, pr. prospekti, № nömrə, AZN manat; weekdays b.e. bazar ertəsi, ç.a. çərşənbə axşamı, c.a. cümə axşamı.
-- **Acronyms:** read as a word if people say it so (ASAN, ADA, DİM, NATO); otherwise spell with Azerbaijani letter names joined by hyphens (BDU → be-de-u, ADNSU → a-de-en-es-u, ABŞ → a-be-şe). Letter names: a, be, ce, çe, de, e, ə, ef, ge, ğe, he, xe, ı, i, je, ka, qe, el, em, en, o, ö, pe, er, es, şe, te, u, ü, ve, ye, ze. Offer the full name as an alternative.
+- **Acronyms:** read as a word if people say it so (ASAN, ADA, DİM, NATO); otherwise spell with Azerbaijani letter names joined by hyphens (BDU → be-de-u, ADNSU → a-de-en-es-u, ABŞ → a-be-şe). Letter names: a, be, ce, çe, de, e, ə, ef, ge, ğe, he, xe, ı, i, je, ka, qe, el, em, en, o, ö, pe, er, es, şe, te, u, ü, ve, ye, ze. The official alphabet names are **fe, ke, se** for F, K, S; speakers often say ef, ka, es in acronyms. Use the form people say for that acronym. **Every** spelled acronym containing F, K or S gets `?` and the alternative in the changes list (e.g. ADNSU → a-de-en-es-u? (rəsmi: se)). Offer the full name as an alternative.
 - **Brands / foreign words:** respell for Azerbaijani reading and list the change: iPhone → Ayfon, WhatsApp → Vatsap, Instagram → İnstaqram, YouTube → Yutub, Google → Qugl, email → imeyl, online → onlayn. Mention the user can keep the original spelling for Gemini/ElevenLabs and test.
 - **Colons and labels:** no `:` in the TTS text. "Ünvan: Nizami küç. 12" → "Ünvan, Nizami küçəsi, on iki."; "Tel:" → "Telefon," (or "Zəng edin,"). A colon before a list becomes a comma or full stop.
 - **Final self-check:** before answering, scan the TTS text for digits and `% $ € ₼ + / : # @ &` and emoji; none may remain.
-- **Emoji, symbols, links:** remove emoji (say the meaning in words if it matters); & → və; + → artı; # → heşteq; don't read URLs or e-mails in full ("link bioda").
+- **Emoji, symbols, links:** remove emoji (say the meaning in words if it matters); & → və; + → artı; # → heşteq; don't read URLs or e-mails in full ("link bioda"). Never voice an @handle or hashtag name: keep it on screen and say "bizi İnstaqramda izləyin" (keep the user's word order) or "link bioda" in the audio; list it in the changes.
 
 ## Pauses and melody
 
@@ -131,7 +137,7 @@ Ten original delivery styles, none based on a real person. Preset 1 is the measu
 | 9 | Motivasiya Natiqi | K · 28–40 | 2.0 (1.7→2.3) · 0.5 s | builds energy, strong key words | Orus · Roger · Babek 0 → +12 % / 0 → +6 % |
 | 10 | Zarafatcıl Gənc Vloqer | K · 18–28 | 2.4 · 0.25 s | playful, casual, comic pause before punchline | Puck · Will · Babek +15 % / +5 % |
 
-For a preset in the other gender, keep its pace and pauses and switch the voice (Gemini F Sulafat / M Charon; Azure Banu / Babek). Age feel: gənc = brighter, faster; yaşlı = slower, deeper. Write the Gemini style line from the preset's delivery + pace in words per minute (words/s × 60) + "Azerbaijani with a native Baku accent (not Turkish)". ElevenLabs stock voice names are suggestions to test; Azerbaijani quality varies by voice.
+For a preset in the other gender, keep its pace and pauses and switch the voice (Gemini F Sulafat / M Charon; Azure Banu / Babek). Age feel: gənc = brighter, faster; yaşlı = slower, deeper. Write the Gemini style line from the preset's delivery + pace in words per minute (words/s × 60) + "Azerbaijani with a native Baku accent (not Turkish)", verbatim and including "(not Turkish)". ElevenLabs stock voice names are suggestions to test; Azerbaijani quality varies by voice.
 
 ## Timing
 
@@ -216,7 +222,7 @@ Dəyişikliklər: men→mən, cox→çox, iPhone→Ayfon, Ali→Əli? …  (or "
 Kommersiya: <one line for the engine(s) named — required for commercial, client or ad use, including a business's social posts (see rule 5); otherwise optional>
 AI qeydi (paylaşım üçün): "Səs süni intellektlə yaradılıb."
 ```
-Then at most 2 lines: offer "ElevenLabs / Azure variantı?", "kişi səsi?", "yoxlama siyahısı?". Prose outside the code blocks and the changes list: **≤ 8 lines** (refusals and problem-fix answers: ≤ 12 lines). Tables, step lists and code blocks don't count as prose. Give the full listening checklist only when asked or when the user reports a problem. Give a second engine block when the user asks for alternatives, for commercial use, or when the first engine doesn't fit. The AI disclosure line is required for social, ad or client use, optional otherwise. Translate labels into the user's language (e.g. English: "Voice", "Text (TTS-ready)", "Changes", "Commercial use", "AI disclosure").
+Then at most 2 lines: offer "ElevenLabs / Azure variantı?", "kişi səsi?", "yoxlama siyahısı?". Prose outside the code blocks and the changes list: **≤ 8 lines** (refusals and problem-fix answers: ≤ 12 lines). Tables, step lists and code blocks don't count as prose. Give the full listening checklist only when asked or when the user reports a problem. Give a second engine block when the user asks for alternatives, for commercial use, or when the first engine doesn't fit. On a phone, even for commercial use, give one full block plus a one-line offer of the commercial-safe engine ("Azure SSML variantı?") unless the user asks for both. The AI disclosure line is required for social, ad or client use, optional otherwise. Translate labels into the user's language (e.g. English: "Voice", "Text (TTS-ready)", "Changes", "Commercial use", "AI disclosure").
 
 Templates for longer work: `templates/voice-presets.md`, `templates/normalisation-cheatsheet.md`, `templates/style-profiles.md`, `templates/engine-blocks.md`, `templates/script-split-template.md`, `templates/quality-checklist.md`.
 
