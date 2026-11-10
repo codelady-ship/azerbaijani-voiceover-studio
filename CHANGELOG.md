@@ -5,6 +5,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 
 ## [1.1.0] - 2026-11-10
 
+### Fixed (blind eval)
+- Every spelled acronym with F, K or S gets `?` and the alternative; @handles and hashtags are never voiced ("bizi İnstaqramda izləyin"); the Gemini style line keeps "(not Turkish)" verbatim; phone answers for commercial use give one block plus a one-line Azure offer. Eval VO-16 added.
+
 ### Added
 - **Plan compatibility** section. Works on the Free plan with no web search or scheduling. Lite path on tight limits: one engine block and one chunk per message.
 - Evals PC-1 to PC-3 and VO-15.

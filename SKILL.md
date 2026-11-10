@@ -85,11 +85,11 @@ Works fully on the Free plan, with no web search and no scheduled tasks needed: 
 - **Time:** 18:30 → saat on səkkiz otuz; 09:05 → saat doqquz sıfır beş; 9:00–18:00 → saat doqquzdan on səkkizə qədər.
 - **Phone numbers:** read in the written groups with commas: 050 123 45 67 → sıfır əlli, yüz iyirmi üç, qırx beş, altmış yeddi; +994 → artı doqquz yüz doxsan dörd; leading zeros are spoken.
 - **Units / abbreviations:** km kilometr, m metr, sm santimetr, kq kiloqram, l litr, °C dərəcə, və s. və sairə, və b. və başqaları, məs. məsələn, küç. küçəsi, pr. prospekti, № nömrə, AZN manat; weekdays b.e. bazar ertəsi, ç.a. çərşənbə axşamı, c.a. cümə axşamı.
-- **Acronyms:** read as a word if people say it so (ASAN, ADA, DİM, NATO); otherwise spell with Azerbaijani letter names joined by hyphens (BDU → be-de-u, ADNSU → a-de-en-es-u, ABŞ → a-be-şe). Letter names: a, be, ce, çe, de, e, ə, ef, ge, ğe, he, xe, ı, i, je, ka, qe, el, em, en, o, ö, pe, er, es, şe, te, u, ü, ve, ye, ze. The official alphabet names are **fe, ke, se** for F, K, S; speakers often say ef, ka, es in acronyms. Use the form people say for that acronym, and list a doubtful one with `?`. Offer the full name as an alternative.
+- **Acronyms:** read as a word if people say it so (ASAN, ADA, DİM, NATO); otherwise spell with Azerbaijani letter names joined by hyphens (BDU → be-de-u, ADNSU → a-de-en-es-u, ABŞ → a-be-şe). Letter names: a, be, ce, çe, de, e, ə, ef, ge, ğe, he, xe, ı, i, je, ka, qe, el, em, en, o, ö, pe, er, es, şe, te, u, ü, ve, ye, ze. The official alphabet names are **fe, ke, se** for F, K, S; speakers often say ef, ka, es in acronyms. Use the form people say for that acronym. **Every** spelled acronym containing F, K or S gets `?` and the alternative in the changes list (e.g. ADNSU → a-de-en-es-u? (rəsmi: se)). Offer the full name as an alternative.
 - **Brands / foreign words:** respell for Azerbaijani reading and list the change: iPhone → Ayfon, WhatsApp → Vatsap, Instagram → İnstaqram, YouTube → Yutub, Google → Qugl, email → imeyl, online → onlayn. Mention the user can keep the original spelling for Gemini/ElevenLabs and test.
 - **Colons and labels:** no `:` in the TTS text. "Ünvan: Nizami küç. 12" → "Ünvan, Nizami küçəsi, on iki."; "Tel:" → "Telefon," (or "Zəng edin,"). A colon before a list becomes a comma or full stop.
 - **Final self-check:** before answering, scan the TTS text for digits and `% $ € ₼ + / : # @ &` and emoji; none may remain.
-- **Emoji, symbols, links:** remove emoji (say the meaning in words if it matters); & → və; + → artı; # → heşteq; don't read URLs or e-mails in full ("link bioda").
+- **Emoji, symbols, links:** remove emoji (say the meaning in words if it matters); & → və; + → artı; # → heşteq; don't read URLs or e-mails in full ("link bioda"). Never voice an @handle or hashtag name: keep it on screen and say "bizi İnstaqramda izləyin" or "link bioda" in the audio; list it in the changes.
 
 ## Pauses and melody
 
@@ -137,7 +137,7 @@ Ten original delivery styles, none based on a real person. Preset 1 is the measu
 | 9 | Motivasiya Natiqi | K · 28–40 | 2.0 (1.7→2.3) · 0.5 s | builds energy, strong key words | Orus · Roger · Babek 0 → +12 % / 0 → +6 % |
 | 10 | Zarafatcıl Gənc Vloqer | K · 18–28 | 2.4 · 0.25 s | playful, casual, comic pause before punchline | Puck · Will · Babek +15 % / +5 % |
 
-For a preset in the other gender, keep its pace and pauses and switch the voice (Gemini F Sulafat / M Charon; Azure Banu / Babek). Age feel: gənc = brighter, faster; yaşlı = slower, deeper. Write the Gemini style line from the preset's delivery + pace in words per minute (words/s × 60) + "Azerbaijani with a native Baku accent (not Turkish)". ElevenLabs stock voice names are suggestions to test; Azerbaijani quality varies by voice.
+For a preset in the other gender, keep its pace and pauses and switch the voice (Gemini F Sulafat / M Charon; Azure Banu / Babek). Age feel: gənc = brighter, faster; yaşlı = slower, deeper. Write the Gemini style line from the preset's delivery + pace in words per minute (words/s × 60) + "Azerbaijani with a native Baku accent (not Turkish)", verbatim and including "(not Turkish)". ElevenLabs stock voice names are suggestions to test; Azerbaijani quality varies by voice.
 
 ## Timing
 
@@ -222,7 +222,7 @@ Dəyişikliklər: men→mən, cox→çox, iPhone→Ayfon, Ali→Əli? …  (or "
 Kommersiya: <one line for the engine(s) named — required for commercial, client or ad use, including a business's social posts (see rule 5); otherwise optional>
 AI qeydi (paylaşım üçün): "Səs süni intellektlə yaradılıb."
 ```
-Then at most 2 lines: offer "ElevenLabs / Azure variantı?", "kişi səsi?", "yoxlama siyahısı?". Prose outside the code blocks and the changes list: **≤ 8 lines** (refusals and problem-fix answers: ≤ 12 lines). Tables, step lists and code blocks don't count as prose. Give the full listening checklist only when asked or when the user reports a problem. Give a second engine block when the user asks for alternatives, for commercial use, or when the first engine doesn't fit. The AI disclosure line is required for social, ad or client use, optional otherwise. Translate labels into the user's language (e.g. English: "Voice", "Text (TTS-ready)", "Changes", "Commercial use", "AI disclosure").
+Then at most 2 lines: offer "ElevenLabs / Azure variantı?", "kişi səsi?", "yoxlama siyahısı?". Prose outside the code blocks and the changes list: **≤ 8 lines** (refusals and problem-fix answers: ≤ 12 lines). Tables, step lists and code blocks don't count as prose. Give the full listening checklist only when asked or when the user reports a problem. Give a second engine block when the user asks for alternatives, for commercial use, or when the first engine doesn't fit. On a phone, even for commercial use, give one full block plus a one-line offer of the commercial-safe engine ("Azure SSML variantı?") unless the user asks for both. The AI disclosure line is required for social, ad or client use, optional otherwise. Translate labels into the user's language (e.g. English: "Voice", "Text (TTS-ready)", "Changes", "Commercial use", "AI disclosure").
 
 Templates for longer work: `templates/voice-presets.md`, `templates/normalisation-cheatsheet.md`, `templates/style-profiles.md`, `templates/engine-blocks.md`, `templates/script-split-template.md`, `templates/quality-checklist.md`.
 
