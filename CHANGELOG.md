@@ -3,6 +3,18 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-11-10
+
+### Added
+- **Preset names.** Each of the 10 presets has a fictional person-style name shown with its style label, e.g. "Ayla (nağıl səsləndirmə)"; lists use "6. Ayla — Nağıl səsləndirmə (qadın)". Names: 1 Aysel, 2 Lalə, 3 Elvin, 4 Nərmin, 5 Günay, 6 Ayla, 7 Tural, 8 Orxan, 9 Rauf, 10 Ceyhun. One line states the names are fictional style names, not real people's voices.
+- Evals PN-1 to PN-4 (story, male lesson, full list, female news).
+
+### Changed
+- Preset 3 is now **male** (Elvin, sakit müəllim; Gemini Sadaltager, ElevenLabs Chris, Azure Babek). Was female "Sakit Müəllimə".
+- Preset 6 is now **female** (Ayla, nağıl səsləndirmə; Gemini Vindemiatrix, ElevenLabs Sarah, Azure Banu). Was male "İsti Nağılçı".
+- Default gender follows the chosen preset's gender when the user doesn't name one. A requested other gender keeps the preset and switches only the voice ("7 Tural (xəbər diktoru), qadın səsi ilə").
+- Output header: `Stil: <# Name (label)>`. Examples and README updated.
+
 ## [1.1.0] - 2026-11-10
 
 ### Fixed (blind eval)

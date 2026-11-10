@@ -31,7 +31,7 @@ No existing voiceover skill handles Azerbaijani. The ones on skill marketplaces 
 
 - **Azerbaijani normalisation.** Numbers, ordinals (with vowel harmony), dates, time, money (manat/qəpik, $, €), percent (*faiz*), decimals, phone numbers, units, abbreviations and acronyms all become words. Brands are respelled (iPhone → Ayfon) and emoji removed.
 - **Letter restoration.** Text typed without ə ş ç ğ ı ö ü, typed on a Turkish keyboard, or written in Cyrillic is converted to correct Latin Azerbaijani. A **list of every change** is included, and doubtful words (especially names) are marked `?`.
-- **10 original voice presets (5 female, 5 male).** They cover warm explainer, energetic Reel host, calm teacher, soft lifestyle, luxury ad, storyteller, news anchor, deep brand voice, motivational speaker and humorous vlogger. Each one has a Gemini style prompt, ElevenLabs tags with a suggested stock voice, and Azure prosody values.
+- **10 original named voice presets (5 female, 5 male),** shown as *Name (style)*: 1 Aysel (friendly guide), 2 Lalə (energetic Reel), 3 Elvin (calm teacher, male), 4 Nərmin (soft lifestyle), 5 Günay (elegant luxury ad), 6 Ayla (storyteller, female), 7 Tural (news anchor), 8 Orxan (premium brand), 9 Rauf (motivation), 10 Ceyhun (playful vlog). The names are fictional style names, not real people's voices. Each one has a Gemini style prompt, ElevenLabs tags with a suggested stock voice, and Azure prosody values.
 - **Measured default style.** Preset 1 is measured from a real Reel voiceover:
   - pace of 1.9 words/s
   - 0.4 s sentence pauses and 0.17 s comma pauses
@@ -138,7 +138,7 @@ This writes `dist/azerbaijani-voiceover-studio.zip`, which contains only `SKILL.
 
 - **Mətnin düzəldilməsi:** rəqəmləri, tarixləri, pulu, faizi, saatı və telefon nömrələrini sözlə yazır.
 - **Hərflərin bərpası:** ə ş ç ğ ı ö ü olmadan və ya kirillə yazılmış mətni düzəldir və nəyi dəyişdiyini göstərir.
-- **10 hazır səs stili:** 5 qadın və 5 kişi. Heç biri real insanın səsi deyil.
+- **10 hazır səs stili:** 5 qadın və 5 kişi, adla: Aysel (səmimi bələdçi), Lalə (enerjili Reel), Elvin (sakit müəllim), Nərmin (yumşaq lifestyle), Günay (zərif lüks reklam), Ayla (nağıl səsləndirmə), Tural (xəbər diktoru), Orxan (premium brend), Rauf (motivasiya), Ceyhun (zarafatcıl vloq). Adlar uydurma stil adlarıdır, real insanların səsi deyil.
 - **Hazır bloklar:** Google AI Studio (Gemini), ElevenLabs və Azure üçün kopyala-yapışdır bloku, 3 addımlıq təlimatla.
 - **Reel vaxtı:** 15, 30 və 60 saniyəlik Reel üçün söz limiti və səhnə vaxtları verir.
 - **Dinləmə siyahısı:** səsi yoxlamaq üçün siyahı və hər problemin həlli.

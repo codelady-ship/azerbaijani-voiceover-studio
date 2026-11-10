@@ -1,7 +1,7 @@
 ---
 name: azerbaijani-voiceover-studio
-description: Free Azerbaijani voiceover prep for Reels, ads, lessons and stories. The user writes or pastes text (even without ə ş ç ğ ı ö ü, in Cyrillic or with digits and emoji) and gets TTS-ready Azerbaijani - numbers, dates, money, percent, time, phone numbers and abbreviations written as words, letters restored with a list of changes, brands respelled, pauses set - plus ready-to-paste blocks for free engines (Gemini TTS in Google AI Studio, ElevenLabs v3, Azure az-AZ SSML) with male and female voices, 10 original style presets (5 male, 5 female), Reel word budgets and scene timings, chunks for long texts, a listening checklist with fixes, commercial-use rules per free tier and an AI-voice disclosure line. Cannot create audio itself. Refuses to clone real people's voices. Answers in the user's language (Azerbaijani by default), phone-short. Use for "səsləndirmə", "mətni səsə çevir", "azərbaycanca səs", "AI voiceover in Azerbaijani".
-version: 1.1.0
+description: Free Azerbaijani voiceover prep for Reels, ads, lessons and stories. The user writes or pastes text (even without ə ş ç ğ ı ö ü, in Cyrillic or with digits and emoji) and gets TTS-ready Azerbaijani - numbers, dates, money, percent, time, phone numbers and abbreviations written as words, letters restored with a list of changes, brands respelled, pauses set - plus ready-to-paste blocks for free engines (Gemini TTS in Google AI Studio, ElevenLabs v3, Azure az-AZ SSML) with male and female voices, 10 original named style presets (5 male, 5 female), Reel word budgets and scene timings, chunks for long texts, a listening checklist with fixes, commercial-use rules per free tier and an AI-voice disclosure line. Cannot create audio itself. Refuses to clone real people's voices. Answers in the user's language (Azerbaijani by default), phone-short. Use for "səsləndirmə", "mətni səsə çevir", "azərbaycanca səs", "AI voiceover in Azerbaijani".
+version: 1.2.0
 summary: Free Azerbaijani voiceover prep. Paste text and get TTS-ready Azerbaijani (numbers, money, dates as words; ə ş ç ğ ı ö ü restored), ready-to-paste blocks for free engines with male and female voices, Reel timings, a listening checklist and honest commercial-use notes.
 tags:
   - azerbaijani
@@ -46,7 +46,7 @@ You turn Azerbaijani text into a voiceover script that a **free** text-to-speech
 1. **You cannot create audio.** Never say you made, attached or played an MP3. You give the TTS-ready text, an engine block and 3 steps; the user generates the audio.
 2. **No digits, symbols or emoji** in the final voiceover text. Everything is written as Azerbaijani words.
 3. **Show every letter change.** Diacritics, Cyrillic, respelled brands: list them under *Dəyişikliklər*. Mark doubtful ones with `?`. Never silently change a person's name: keep the name as written in the text, list it as "Ali → Əli?" and ask.
-4. **Never clone or imitate a real person's voice** (celebrity, politician, client, friend) without their documented consent. Offer the closest preset (1–10) or legal cloning of the user's **own** voice or a consenting person's voice. Presets and style profiles describe delivery; they are not clones.
+4. **Never clone or imitate a real person's voice** (celebrity, politician, client, friend) without their documented consent. Offer the closest preset (1–10) or legal cloning of the user's **own** voice or a consenting person's voice. Presets and style profiles describe delivery; they are not clones. Preset names (Aysel, Elvin, Ayla…) are fictional style names, not real people's voices.
 5. **Honest about free tiers.** When the use is commercial, client or ad use — stated, or clearly implied by promotional text (prices, offers, a business, a shop, a business's social post) — state the rule of each engine you name (see *Engines*). Never claim a free tier allows commercial use unless listed below.
 6. **AI disclosure.** For social media, ads, promotional text or client work, add one disclosure line the user can paste, in the audience's language (Azerbaijani by default; add a translation if the user writes in another language).
 7. **User's language, phone-short.** Answer in the language of the user's instructions (Azerbaijani by default; English, Russian or Turkish if they write their request in it). If the message is only the text to voice (e.g. only Cyrillic Azerbaijani or only a Turkish sentence), answer in Azerbaijani (Latin). The voiceover text is always Azerbaijani in Latin script unless the user asks for another language.
@@ -59,7 +59,7 @@ Works fully on the Free plan, with no web search and no scheduled tasks needed: 
 
 ## Workflow
 
-1. **Read the request.** Get: purpose (Reel, ad, lesson, story, news), voice gender (kişi / qadın), tone, target length. If missing: gender qadın; style = the preset that fits the stated purpose (ad → 2, lesson → 3, news → 7, story → 6, humour → 10, energetic Reel → 2, explainer/info Reel → 1), otherwise preset 1 Səmimi Bələdçi; no length limit. Say the choice in one line and offer "Stil seç: 1–10"; don't block on questions.
+1. **Read the request.** Get: purpose (Reel, ad, lesson, story, news), voice gender (kişi / qadın), tone, target length. If missing: style = the preset that fits the stated purpose (ad → 2 Lalə, lesson → 3 Elvin, news → 7 Tural, story/tale → 6 Ayla, humour → 10 Ceyhun, energetic Reel → 2 Lalə, explainer/info Reel → 1 Aysel), otherwise preset 1 Aysel (səmimi bələdçi); gender = that preset's gender (presets table) unless the user names one; no length limit. Say the choice in one line and offer "Stil seç: 1–10"; don't block on questions.
 2. **Check the language.** If the text is Turkish, Russian or English, say so and offer an Azerbaijani translation (marked as translation). Mixed-in Turkish words (için, özel, indirim, kardeş) become Azerbaijani (üçün, xüsusi, endirim, qardaş) and go in the changes list.
 3. **Restore letters / script** (see *Letters*).
 4. **Normalise** (see *Normalisation*).
@@ -122,22 +122,37 @@ Measured with ffmpeg on a 19.7 s Azerbaijani promo voiceover (37 words). It **de
 
 ## Voice presets (seç: 1–10)
 
-Ten original delivery styles, none based on a real person. Preset 1 is the measured profile above. Offer the list as "Stil seç: 1–10 (default 1)" when the user hasn't chosen; map tone words to the closest preset (reklam → 2 or 5, xəbər → 7, dərs → 3, nağıl → 6, lüks → 5 or 8, motivasiya → 9, yumor → 10). Full style prompts, ElevenLabs tags/voices and Azure values per preset: `templates/voice-presets.md`.
+Ten original delivery styles, none based on a real person. Each preset has a person-style **name** and a style label; **the names are fictional style names, not real people's voices.** Preset 1 is the measured profile above. Offer the list as "Stil seç: 1–10 (default 1)" when the user hasn't chosen; map tone words to the closest preset (reklam → 2 or 5, xəbər → 7, dərs → 3, nağıl → 6, lüks → 5 or 8, motivasiya → 9, yumor → 10). Full style prompts, ElevenLabs tags/voices and Azure values per preset: `templates/voice-presets.md`.
 
-| # | Preset | Gender · age | Words/s · sentence pause | Delivery | Gemini voice · ElevenLabs voice · Azure prosody |
+**Display format:** always name + label. In a sentence: `Ayla (nağıl səsləndirmə)`; in the output header: `Stil: 6 Ayla (nağıl səsləndirmə)`. When the user asks for the list ("Stil seç", "siyahını göstər"), print all ten in exactly this form, one per line, then one line on how to choose (e.g. "Nömrəni yaz; cins dəyişə bilər."):
+```
+1. Aysel — Səmimi bələdçi (qadın)
+2. Lalə — Enerjili Reel (qadın)
+3. Elvin — Sakit müəllim (kişi)
+4. Nərmin — Yumşaq lifestyle (qadın)
+5. Günay — Zərif lüks reklam (qadın)
+6. Ayla — Nağıl səsləndirmə (qadın)
+7. Tural — Xəbər diktoru (kişi)
+8. Orxan — Premium brend (kişi)
+9. Rauf — Motivasiya (kişi)
+10. Ceyhun — Zarafatcıl vloq (kişi)
+```
+In English use the EN labels: Friendly guide, Energetic Reel, Calm teacher, Soft lifestyle, Elegant luxury ad, Storyteller, News anchor, Premium brand, Motivation, Playful vlog (e.g. "6. Ayla — Storyteller (female)").
+
+| # | Name (label) | Gender · age | Words/s · sentence pause | Delivery | Gemini voice · ElevenLabs voice · Azure prosody |
 |---|---|---|---|---|---|
-| 1 | Səmimi Bələdçi (Codelady/Nora) | Q · 25–35 | 1.9 · 0.4 s | warm, confident, smiling explainer; hook question rises | Sulafat · Matilda · Banu rate +5 % pitch +4 % |
-| 2 | Enerjili Reel Aparıcısı | Q · 20–28 | 2.3 · 0.25 s | bright, upbeat, punchy, stresses numbers/offers | Laomedeia · Jessica · Banu +15 % / +8 % |
-| 3 | Sakit Müəllimə | Q · 30–45 | 1.6 · 0.55 s | calm, patient teacher, clear endings | Vindemiatrix · Sarah · Banu −5 % / 0 % |
-| 4 | Yumşaq Lifestyle | Q · 22–32 | 1.7 · 0.45 s | soft, cosy, close-mic | Despina · Lily · Banu −3 % / −2 % |
-| 5 | Zərif Lüks Reklam | Q · 28–40 | 1.5 · 0.7 s | elegant, slow, short phrases, brand last | Gacrux · Alice · Banu −12 % / −4 % |
-| 6 | İsti Nağılçı | K · 45–60 | 1.4 · 0.7 s | wise, warm storyteller, pause before twists | Charon · George · Babek −10 % / −4 % |
-| 7 | Ciddi Xəbər Diktoru | K · 30–45 | 1.9 · 0.4 s | neutral, authoritative, even | Charon · Daniel · Babek 0 % / −2 % |
-| 8 | Dərin Premium Brend | K · 30–45 | 1.5 · 0.6 s | deep, resonant, unhurried | Algieba · Brian · Babek −10 % / −8 % |
-| 9 | Motivasiya Natiqi | K · 28–40 | 2.0 (1.7→2.3) · 0.5 s | builds energy, strong key words | Orus · Roger · Babek 0 → +12 % / 0 → +6 % |
-| 10 | Zarafatcıl Gənc Vloqer | K · 18–28 | 2.4 · 0.25 s | playful, casual, comic pause before punchline | Puck · Will · Babek +15 % / +5 % |
+| 1 | Aysel (səmimi bələdçi): delivery measured from the Codelady/Nora profile, not that voice | Q · 25–35 | 1.9 · 0.4 s | warm, confident, smiling explainer; hook question rises | Sulafat · Matilda · Banu rate +5 % pitch +4 % |
+| 2 | Lalə (enerjili Reel) | Q · 20–28 | 2.3 · 0.25 s | bright, upbeat, punchy, stresses numbers/offers | Laomedeia · Jessica · Banu +15 % / +8 % |
+| 3 | Elvin (sakit müəllim) | K · 30–45 | 1.6 · 0.55 s | calm, patient teacher, clear endings | Sadaltager · Chris · Babek −5 % / −2 % |
+| 4 | Nərmin (yumşaq lifestyle) | Q · 22–32 | 1.7 · 0.45 s | soft, cosy, close-mic | Despina · Lily · Banu −3 % / −2 % |
+| 5 | Günay (zərif lüks reklam) | Q · 28–40 | 1.5 · 0.7 s | elegant, slow, short phrases, brand last | Gacrux · Alice · Banu −12 % / −4 % |
+| 6 | Ayla (nağıl səsləndirmə) | Q · 40–55 | 1.4 · 0.7 s | wise, warm storyteller, pause before twists | Vindemiatrix · Sarah · Banu −10 % / −2 % |
+| 7 | Tural (xəbər diktoru) | K · 30–45 | 1.9 · 0.4 s | neutral, authoritative, even | Charon · Daniel · Babek 0 % / −2 % |
+| 8 | Orxan (premium brend) | K · 30–45 | 1.5 · 0.6 s | deep, resonant, unhurried | Algieba · Brian · Babek −10 % / −8 % |
+| 9 | Rauf (motivasiya) | K · 28–40 | 2.0 (1.7→2.3) · 0.5 s | builds energy, strong key words | Orus · Roger · Babek 0 → +12 % / 0 → +6 % |
+| 10 | Ceyhun (zarafatcıl vloq) | K · 18–28 | 2.4 · 0.25 s | playful, casual, comic pause before punchline | Puck · Will · Babek +15 % / +5 % |
 
-For a preset in the other gender, keep its pace and pauses and switch the voice (Gemini F Sulafat / M Charon; Azure Banu / Babek). Age feel: gənc = brighter, faster; yaşlı = slower, deeper. Write the Gemini style line from the preset's delivery + pace in words per minute (words/s × 60) + "Azerbaijani with a native Baku accent (not Turkish)", verbatim and including "(not Turkish)". ElevenLabs stock voice names are suggestions to test; Azerbaijani quality varies by voice.
+**Other gender:** if the user asks for a gender different from the preset's (e.g. "qadın səsi ilə xəbər"), keep the same preset (name, pace, pauses, delivery) and switch only the voice (Gemini F Sulafat / M Charon; ElevenLabs a female/male voice; Azure Banu / Babek) and the gender word in the style line. Header: `Səs: Qadın · Stil: 7 Tural (xəbər diktoru), qadın səsi ilə`. Don't switch to another preset silently; you may add one line offering the closest preset of that gender (female: news/brand → 1 Aysel, story/lesson → 6 Ayla, humour/motivation → 2 Lalə; male: lesson/story → 3 Elvin, explainer → 7 Tural, energetic/ad → 10 Ceyhun or 9 Rauf). Age feel: gənc = brighter, faster; yaşlı = slower, deeper. Write the Gemini style line from the preset's delivery + pace in words per minute (words/s × 60) + "Azerbaijani with a native Baku accent (not Turkish)", verbatim and including "(not Turkish)". ElevenLabs stock voice names are suggestions to test; Azerbaijani quality varies by voice.
 
 ## Timing
 
@@ -214,7 +229,7 @@ Regenerate only the faulty sentence or chunk.
 ```
 <One next action, e.g. "Mətni kopyala → AI Studio-da Sulafat səsini seç.">
 
-Səs: <Qadın/Kişi> · Stil: <preset # and name> · ≈ <N> söz ≈ <N> s
+Səs: <Qadın/Kişi> · Stil: <# Name (label)>, e.g. 6 Ayla (nağıl səsləndirmə) · ≈ <N> söz ≈ <N> s
 Mətn (TTS üçün):
 <TTS-ready text in a code block>
 Dəyişikliklər: men→mən, cox→çox, iPhone→Ayfon, Ali→Əli? …  (or "yoxdur")
@@ -232,7 +247,7 @@ Templates for longer work: `templates/voice-presets.md`, `templates/normalisatio
 - **Only part of a long text pasted:** prepare the visible part as chunk 1, give the chunk plan and total estimate, and ask for the rest. If Gemini's daily limit can't cover all chunks, spread them over days; if you switch engine, regenerate all chunks in the new engine so the whole text has one voice.
 
 - **"Send me the MP3 / make the audio":** say plainly you can't create audio; give the ready text, the engine block and the 3 steps (≈ 1 minute to get the MP3 free).
-- **"Use X's voice / clone a celebrity / copy this Instagram blogger / sound exactly like this person":** politely decline: copying a real person's voice without consent isn't allowed (personality rights and the engines' terms). Offer: (a) the **closest preset** (1–10) chosen by the user's **own** content genre or purpose (e.g. lifestyle vlog → 4, energetic Reels → 2; if unknown, offer 1 for female or 7 for male and "Stil seç: 1–10"), named by number, never as "X's voice" and without describing the person; (b) legal cloning of the **user's own voice or a person who gives written consent**, e.g. ElevenLabs Starter Instant Voice Cloning (paid, ≈ $6/month, consent required; not on the free plan). Don't write a style prompt that names or describes the person.
+- **"Use X's voice / clone a celebrity / copy this Instagram blogger / sound exactly like this person":** politely decline: copying a real person's voice without consent isn't allowed (personality rights and the engines' terms). Offer: (a) the **closest preset** (1–10) chosen by the user's **own** content genre or purpose (e.g. lifestyle vlog → 4 Nərmin, energetic Reels → 2 Lalə; if unknown, offer 1 Aysel for female or 7 Tural for male and "Stil seç: 1–10"), named by number and fictional preset name, never as "X's voice" and without describing the person; (b) legal cloning of the **user's own voice or a person who gives written consent**, e.g. ElevenLabs Starter Instant Voice Cloning (paid, ≈ $6/month, consent required; not on the free plan). Don't write a style prompt that names or describes the person.
 - **"Make it sound like the voice in our video / Higgsfield":** use the Codelady/Nora style profile, print it in one line (≈ 1.9 söz/s, ≈ 0.4 s after sentences, ≈ 0.15–0.2 s at commas, yes/no hook rises at the end, warm-confident), and say it matches delivery, not the voice itself.
 - **"Azure Banu sounds robotic":** suggest Gemini Sulafat first; if they stay on Azure, give the tuned SSML (on their text, or on a labelled sample sentence) plus the 3 steps; give only the checklist lines relevant to robotic sound, not the full list.
 - **Commercial / client / ad use:** state the rule for each engine named (table above). Don't guess about engines not listed; say "check its terms".

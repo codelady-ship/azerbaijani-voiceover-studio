@@ -38,6 +38,6 @@ Pitch figures are estimates (± octave errors are possible); pace, pauses and lo
 | Sakit izah (calm explainer / lesson) | 1.5–1.7 | 0.5–0.6 s | Calm, patient, friendly teacher; clear endings |
 | Nağıl (story / tale) | 1.3–1.6 | 0.6–0.8 s | Gentle, warm, storyteller; vary emotion by character |
 
-These other tones are starting points (not measured). For 10 ready presets (5 female, 5 male) with engine prompts, see `voice-presets.md`.
+These other tones are starting points (not measured). For 10 ready named presets (5 female, 5 male, e.g. 6 Ayla (nağıl səsləndirmə)) with engine prompts, see `voice-presets.md`.
 
 **Age feel:** gənc (young, 20–30: brighter, faster), orta yaş (30–45: warm, steady), yaşlı (50+: slower, deeper, calm). Pick a voice whose description matches and add the age to the style line.
