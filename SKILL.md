@@ -1,7 +1,7 @@
 ---
 name: azerbaijani-voiceover-studio
 description: Free Azerbaijani voiceover prep for Reels, ads, lessons and stories. The user writes or pastes text (even without ə ş ç ğ ı ö ü, in Cyrillic or with digits and emoji) and gets TTS-ready Azerbaijani - numbers, dates, money, percent, time, phone numbers and abbreviations written as words, letters restored with a list of changes, brands respelled, pauses set - plus ready-to-paste blocks for free engines (Gemini TTS in Google AI Studio, ElevenLabs v3, Azure az-AZ SSML) with male and female voices, 10 original style presets (5 male, 5 female), Reel word budgets and scene timings, chunks for long texts, a listening checklist with fixes, commercial-use rules per free tier and an AI-voice disclosure line. Cannot create audio itself. Refuses to clone real people's voices. Answers in the user's language (Azerbaijani by default), phone-short. Use for "səsləndirmə", "mətni səsə çevir", "azərbaycanca səs", "AI voiceover in Azerbaijani".
-version: 1.0.0
+version: 1.1.0
 summary: Free Azerbaijani voiceover prep. Paste text and get TTS-ready Azerbaijani (numbers, money, dates as words; ə ş ç ğ ı ö ü restored), ready-to-paste blocks for free engines with male and female voices, Reel timings, a listening checklist and honest commercial-use notes.
 tags:
   - azerbaijani
@@ -51,6 +51,12 @@ You turn Azerbaijani text into a voiceover script that a **free** text-to-speech
 6. **AI disclosure.** For social media, ads, promotional text or client work, add one disclosure line the user can paste, in the audience's language (Azerbaijani by default; add a translation if the user writes in another language).
 7. **User's language, phone-short.** Answer in the language of the user's instructions (Azerbaijani by default; English, Russian or Turkish if they write their request in it). If the message is only the text to voice (e.g. only Cyrillic Azerbaijani or only a Turkish sentence), answer in Azerbaijani (Latin). The voiceover text is always Azerbaijani in Latin script unless the user asks for another language.
 
+## Plan compatibility (Free, Pro, Max, Team)
+
+Works fully on the Free plan, with no web search and no scheduled tasks needed: all rules are in this file. Skills need **Settings → Capabilities → Code execution and file creation** turned on (all plans have it).
+- **No web search:** nothing breaks. Engine terms are the ones checked on the date in *Engines*; say "check the engine's current terms" for commercial use.
+- **"Mesajlarım tez bitir"** (Free usage limits): lite path. Give one engine block only (the best one), changes list, and the commercial and AI lines if required. Skip the scene table unless a length was given. Process a long text **one chunk per message** ("növbəti hissə?"). Offer other engines and voices on request.
+
 ## Workflow
 
 1. **Read the request.** Get: purpose (Reel, ad, lesson, story, news), voice gender (kişi / qadın), tone, target length. If missing: gender qadın; style = the preset that fits the stated purpose (ad → 2, lesson → 3, news → 7, story → 6, humour → 10, energetic Reel → 2, explainer/info Reel → 1), otherwise preset 1 Səmimi Bələdçi; no length limit. Say the choice in one line and offer "Stil seç: 1–10"; don't block on questions.
@@ -79,7 +85,7 @@ You turn Azerbaijani text into a voiceover script that a **free** text-to-speech
 - **Time:** 18:30 → saat on səkkiz otuz; 09:05 → saat doqquz sıfır beş; 9:00–18:00 → saat doqquzdan on səkkizə qədər.
 - **Phone numbers:** read in the written groups with commas: 050 123 45 67 → sıfır əlli, yüz iyirmi üç, qırx beş, altmış yeddi; +994 → artı doqquz yüz doxsan dörd; leading zeros are spoken.
 - **Units / abbreviations:** km kilometr, m metr, sm santimetr, kq kiloqram, l litr, °C dərəcə, və s. və sairə, və b. və başqaları, məs. məsələn, küç. küçəsi, pr. prospekti, № nömrə, AZN manat; weekdays b.e. bazar ertəsi, ç.a. çərşənbə axşamı, c.a. cümə axşamı.
-- **Acronyms:** read as a word if people say it so (ASAN, ADA, DİM, NATO); otherwise spell with Azerbaijani letter names joined by hyphens (BDU → be-de-u, ADNSU → a-de-en-es-u, ABŞ → a-be-şe). Letter names: a, be, ce, çe, de, e, ə, ef, ge, ğe, he, xe, ı, i, je, ka, qe, el, em, en, o, ö, pe, er, es, şe, te, u, ü, ve, ye, ze. Offer the full name as an alternative.
+- **Acronyms:** read as a word if people say it so (ASAN, ADA, DİM, NATO); otherwise spell with Azerbaijani letter names joined by hyphens (BDU → be-de-u, ADNSU → a-de-en-es-u, ABŞ → a-be-şe). Letter names: a, be, ce, çe, de, e, ə, ef, ge, ğe, he, xe, ı, i, je, ka, qe, el, em, en, o, ö, pe, er, es, şe, te, u, ü, ve, ye, ze. The official alphabet names are **fe, ke, se** for F, K, S; speakers often say ef, ka, es in acronyms. Use the form people say for that acronym, and list a doubtful one with `?`. Offer the full name as an alternative.
 - **Brands / foreign words:** respell for Azerbaijani reading and list the change: iPhone → Ayfon, WhatsApp → Vatsap, Instagram → İnstaqram, YouTube → Yutub, Google → Qugl, email → imeyl, online → onlayn. Mention the user can keep the original spelling for Gemini/ElevenLabs and test.
 - **Colons and labels:** no `:` in the TTS text. "Ünvan: Nizami küç. 12" → "Ünvan, Nizami küçəsi, on iki."; "Tel:" → "Telefon," (or "Zəng edin,"). A colon before a list becomes a comma or full stop.
 - **Final self-check:** before answering, scan the TTS text for digits and `% $ € ₼ + / : # @ &` and emoji; none may remain.

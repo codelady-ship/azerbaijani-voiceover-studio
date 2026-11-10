@@ -71,6 +71,10 @@ No existing voiceover skill handles Azerbaijani. The ones on skill marketplaces 
 
 Changes: Cay → Çay · cemi → cəmi · + → və · 4,50 AZN → dörd manat əlli qəpik · Sifaris → Sifariş. The output then gives a Gemini block (voice Puck/Charon), an Azure SSML block, the commercial-use note and the AI disclosure line. See [`examples/`](examples/) for three full worked examples.
 
+## Plan compatibility
+
+Works on **every Claude plan: Free, Pro, Max and Team**. Turn on *Settings → Capabilities → Code execution and file creation* (Skills need it; every plan has it). No web search or scheduled tasks needed. On tight Free limits it gives one engine block and one chunk per message. Checked against [claude.com/pricing](https://claude.com/pricing) on 2026-11-10.
+
 ## Pricing
 
 **Free, and it will stay free.** It's a standalone skill with no paid tier, no gated features and no checkout link. It's for video makers, SMM specialists, teachers, small businesses and anyone in Azerbaijan who needs a voiceover.
