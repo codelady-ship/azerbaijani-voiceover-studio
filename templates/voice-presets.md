@@ -1,6 +1,6 @@
 # Voice presets (1–10)
 
-Ten **original** delivery styles for Azerbaijani Reels, ads, lessons and stories: 5 female and 5 male. None is based on, named after or imitating a real person, blogger or actor. A preset describes delivery (pace, pauses, melody, energy). Use it with any voice the engine offers. Preset 1 is the measured Codelady/Nora profile, which describes that delivery only and does not copy the voice.
+Ten **original** delivery styles for Azerbaijani Reels, ads, lessons and stories: 5 female and 5 male. None is based on, named after or imitating a real person, blogger or actor. Each preset has a person-style name (Aysel, Elvin, Ayla…) shown with its style label, e.g. "Ayla (nağıl səsləndirmə)". **The names are fictional style names, not real people's voices.** A preset describes delivery (pace, pauses, melody, energy). Use it with any voice the engine offers. Preset 1 is the measured Codelady/Nora profile, which describes that delivery only and does not copy the voice.
 
 Engine notes:
 - **Gemini** = Google AI Studio → Speech generation.
@@ -8,22 +8,24 @@ Engine notes:
 - **Azure** = Speech Studio, Audio Content Creation. Only `az-AZ-BanuNeural` (F) and `az-AZ-BabekNeural` (M) exist, so presets differ by prosody only.
 - Pace is in words per second and includes pauses. The word budget is seconds × pace.
 
-| # | Name | Gender | Age feel | Pace | Best for |
-|---|---|---|---|---|---|
-| 1 | Səmimi Bələdçi (Codelady/Nora) | Qadın | 25–35 | 1.9 | Explainer Reels, tips, product intros |
-| 2 | Enerjili Reel Aparıcısı | Qadın | 20–28 | 2.3 | Trends, giveaways, fast hooks |
-| 3 | Sakit Müəllimə | Qadın | 30–45 | 1.6 | Lessons, tutorials, e-learning |
-| 4 | Yumşaq Lifestyle | Qadın | 22–32 | 1.7 | Beauty, cafés, travel, daily vlogs |
-| 5 | Zərif Lüks Reklam | Qadın | 28–40 | 1.5 | Jewellery, fashion, premium brands |
-| 6 | İsti Nağılçı | Kişi | 45–60 | 1.4 | Stories, tales, history, documentary |
-| 7 | Ciddi Xəbər Diktoru | Kişi | 30–45 | 1.9 | News, announcements, facts |
-| 8 | Dərin Premium Brend | Kişi | 30–45 | 1.5 | Cars, real estate, banks, tech launches |
-| 9 | Motivasiya Natiqi | Kişi | 28–40 | 2.0 (varied) | Motivation, sport, courses, coaching |
-| 10 | Zarafatcıl Gənc Vloqer | Kişi | 18–28 | 2.4 | Humour, street interviews, memes, food |
+| # | Name | Label (AZ) | Label (EN) | Gender | Age feel | Pace | Best for |
+|---|---|---|---|---|---|---|---|
+| 1 | Aysel | Səmimi bələdçi (Codelady/Nora, measured) | Friendly guide | Qadın | 25–35 | 1.9 | Explainer Reels, tips, product intros |
+| 2 | Lalə | Enerjili Reel | Energetic Reel | Qadın | 20–28 | 2.3 | Trends, giveaways, fast hooks |
+| 3 | Elvin | Sakit müəllim | Calm teacher | Kişi | 30–45 | 1.6 | Lessons, tutorials, e-learning |
+| 4 | Nərmin | Yumşaq lifestyle | Soft lifestyle | Qadın | 22–32 | 1.7 | Beauty, cafés, travel, daily vlogs |
+| 5 | Günay | Zərif lüks reklam | Elegant luxury ad | Qadın | 28–40 | 1.5 | Jewellery, fashion, premium brands |
+| 6 | Ayla | Nağıl səsləndirmə | Storyteller | Qadın | 40–55 | 1.4 | Stories, tales, history, documentary |
+| 7 | Tural | Xəbər diktoru | News anchor | Kişi | 30–45 | 1.9 | News, announcements, facts |
+| 8 | Orxan | Premium brend | Premium brand | Kişi | 30–45 | 1.5 | Cars, real estate, banks, tech launches |
+| 9 | Rauf | Motivasiya | Motivation | Kişi | 28–40 | 2.0 (varied) | Motivation, sport, courses, coaching |
+| 10 | Ceyhun | Zarafatcıl vloq | Playful vlog | Kişi | 18–28 | 2.4 | Humour, street interviews, memes, food |
+
+List format for users: `6. Ayla — Nağıl səsləndirmə (qadın)`; inline: `Ayla (nağıl səsləndirmə)`.
 
 ---
 
-## 1. Səmimi Bələdçi (Codelady/Nora, measured) — qadın
+## 1. Aysel (səmimi bələdçi) — qadın · Codelady/Nora, measured
 
 - **Age feel:** 25–35.
 - **Pace:** 1.9 words/s (measured).
@@ -36,7 +38,7 @@ Engine notes:
 - **Azure Banu:** `rate="+5%" pitch="+4%"` on the hook, `+3% / 0%` on the body. `<break time="400ms"/>` after sentences, `180ms` at commas. `pitch="+12%"` on the last word of a question.
 - **Sample:** "Təqaüdə seçildiyin barədə mesaj gəlib? Dayan. Əvvəlcə rəsmi saytı yoxla."
 
-## 2. Enerjili Reel Aparıcısı — qadın
+## 2. Lalə (enerjili Reel) — qadın
 
 - **Age feel:** 20–28.
 - **Pace:** 2.3 words/s.
@@ -49,7 +51,7 @@ Engine notes:
 - **Azure Banu:** `rate="+15%" pitch="+8%"`. `<break time="250ms"/>` after sentences, `100ms` at commas.
 - **Sample:** "Bu həftə hər şey otuz faiz endirimlə! Tələs, cəmi üç gün qalıb!"
 
-## 3. Sakit Müəllimə — qadın
+## 3. Elvin (sakit müəllim) — kişi
 
 - **Age feel:** 30–45.
 - **Pace:** 1.6 words/s.
@@ -57,12 +59,12 @@ Engine notes:
 - **Pitch/energy:** medium and steady. Calm, patient, encouraging.
 - **Intonation:** clear falling endings. Key terms are said slowly with light stress. Questions rise gently, as if checking understanding.
 - **Best for:** lessons, tutorials, e-learning, instructions, university and course content.
-- **Gemini** (Vindemiatrix, or Achernar): `Azerbaijani, native Baku accent. Calm, patient, friendly female teacher. Moderate pace about 95 words per minute, clear articulation, longer pause between steps, gentle stress on key terms.`
-- **ElevenLabs** (Sarah or Alice): no tags, or `[curious]` before a question. Stability: Robust. Speed: 0.95.
-- **Azure Banu:** `rate="-5%" pitch="0%"`. `<break time="550ms"/>` after sentences, `220ms` at commas, `800ms` between steps.
+- **Gemini** (Sadaltager, or Iapetus; female alternative: Vindemiatrix): `Azerbaijani with a native Baku accent (not Turkish). Calm, patient, friendly male teacher. Moderate pace about 95 words per minute, clear articulation, longer pause between steps, gentle stress on key terms.`
+- **ElevenLabs** (Chris or Eric): no tags, or `[curious]` before a question. Stability: Robust. Speed: 0.95.
+- **Azure Babek:** `rate="-5%" pitch="-2%"`. `<break time="550ms"/>` after sentences, `220ms` at commas, `800ms` between steps. (Female: Banu `rate="-5%" pitch="0%"`.)
 - **Sample:** "Birinci addım: faylı açın. İndi isə diqqətlə baxın, düymə yuxarıdadır."
 
-## 4. Yumşaq Lifestyle — qadın
+## 4. Nərmin (yumşaq lifestyle) — qadın
 
 - **Age feel:** 22–32.
 - **Pace:** 1.7 words/s.
@@ -75,7 +77,7 @@ Engine notes:
 - **Azure Banu:** `rate="-3%" pitch="-2%" volume="-10%"`. `<break time="450ms"/>`.
 - **Sample:** "Səhər qəhvəsi, yumşaq işıq… və bir az özünə vaxt."
 
-## 5. Zərif Lüks Reklam — qadın
+## 5. Günay (zərif lüks reklam) — qadın
 
 - **Age feel:** 28–40.
 - **Pace:** 1.5 words/s.
@@ -88,20 +90,20 @@ Engine notes:
 - **Azure Banu:** `rate="-12%" pitch="-4%"`. `<break time="700ms"/>` between phrases.
 - **Sample:** "Zəriflik. Sadəlik. Və sənə layiq olan parıltı."
 
-## 6. İsti Nağılçı — kişi
+## 6. Ayla (nağıl səsləndirmə) — qadın
 
-- **Age feel:** 45–60.
+- **Age feel:** 40–55.
 - **Pace:** 1.4 words/s.
 - **Pauses:** 0.6–0.8 s at sentence end, 0.25 s at commas. A dramatic pause (about 1 s) before a twist.
 - **Pitch/energy:** low-medium, rich and warm. Calm with emotional colour.
 - **Intonation:** wide storytelling melody. Questions rise mysteriously. Character lines change tone slightly.
 - **Best for:** tales, stories, history, documentary, Novruz and holiday content.
-- **Gemini** (Charon, or Algenib): `Azerbaijani, native Baku accent. Warm, wise male storyteller in his fifties. Slow pace about 85 words per minute, rich low voice, long pauses before important moments, gentle emotion, like telling a tale to children.`
-- **ElevenLabs** (George or Bill): `[curious]` before a mystery and `[sighs]` once. "…" before twists. Stability: Natural. Speed: 0.9.
-- **Azure Babek:** `rate="-10%" pitch="-4%"`. `<break time="700ms"/>` after sentences, `1000ms` before a twist.
+- **Gemini** (Vindemiatrix, or Achernar; male alternative: Charon): `Azerbaijani with a native Baku accent (not Turkish). Warm, wise female storyteller in her late forties. Slow pace about 85 words per minute, rich, gentle voice, long pauses before important moments, gentle emotion, like telling a tale to children.`
+- **ElevenLabs** (Sarah or Matilda): `[curious]` before a mystery and `[sighs]` once. "…" before twists. Stability: Natural. Speed: 0.9.
+- **Azure Banu:** `rate="-10%" pitch="-2%"`. `<break time="700ms"/>` after sentences, `1000ms` before a twist. (Male: Babek `rate="-10%" pitch="-4%"`.)
 - **Sample:** "Biri vardı, biri yoxdu… Uzaq bir kənddə bir qoca bağban yaşayırdı."
 
-## 7. Ciddi Xəbər Diktoru — kişi
+## 7. Tural (xəbər diktoru) — kişi
 
 - **Age feel:** 30–45.
 - **Pace:** 1.9 words/s.
@@ -114,7 +116,7 @@ Engine notes:
 - **Azure Babek:** `rate="0%" pitch="-2%"`. `<break time="400ms"/>` after sentences, `150ms` at commas.
 - **Sample:** "Bu gün Bakıda yeni metro stansiyası açıldı. Stansiya gündə on min sərnişinə xidmət edəcək."
 
-## 8. Dərin Premium Brend — kişi
+## 8. Orxan (premium brend) — kişi
 
 - **Age feel:** 30–45.
 - **Pace:** 1.5 words/s.
@@ -127,7 +129,7 @@ Engine notes:
 - **Azure Babek:** `rate="-10%" pitch="-8%"`. `<break time="600ms"/>`.
 - **Sample:** "Gücü hiss et. Rahatlığı yaşa. Yeni nəsil — artıq Bakıda."
 
-## 9. Motivasiya Natiqi — kişi
+## 9. Rauf (motivasiya) — kişi
 
 - **Age feel:** 28–40.
 - **Pace:** 2.0 words/s on average, building from 1.7 to 2.3.
@@ -140,7 +142,7 @@ Engine notes:
 - **Azure Babek:** first part `rate="+0%" pitch="+0%"`, final part `rate="+12%" pitch="+6%"`. `<break time="500ms"/>` before the key line.
 - **Sample:** "Hər gün bir addım. Yorulursan? Normaldır. Amma dayanma!"
 
-## 10. Zarafatcıl Gənc Vloqer — kişi
+## 10. Ceyhun (zarafatcıl vloq) — kişi
 
 - **Age feel:** 18–28.
 - **Pace:** 2.4 words/s.
@@ -155,6 +157,6 @@ Engine notes:
 
 ---
 
-**Picking:** ask "Hansı stil? 1–10 seç (default: 1)". For a voice of the other gender, keep the same pace and pause pattern and choose a voice of the requested gender (Gemini F: Sulafat / M: Charon; Azure Banu / Babek).
+**Picking:** ask "Hansı stil? 1–10 seç (default: 1)". For a voice of the other gender, keep the same preset (name, pace and pause pattern) and choose a voice of the requested gender (Gemini F: Sulafat / M: Charon; Azure Banu / Babek), e.g. "7 Tural (xəbər diktoru), qadın səsi ilə".
 
-**Not allowed:** presets named after, or tuned to sound like, a real person (blogger, actor, singer, politician). Use the closest preset instead. For a real voice, the only route is cloning **your own** voice or that of a person who gave consent, on a service that allows it (e.g. ElevenLabs Starter Instant Voice Cloning, paid, which includes a consent step).
+**Not allowed:** presets named after, or tuned to sound like, a real person (blogger, actor, singer, politician). The preset names here are fictional style names, not real people's voices. Use the closest preset instead. For a real voice, the only route is cloning **your own** voice or that of a person who gave consent, on a service that allows it (e.g. ElevenLabs Starter Instant Voice Cloning, paid, which includes a consent step).

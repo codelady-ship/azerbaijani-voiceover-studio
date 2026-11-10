@@ -1,4 +1,4 @@
-# Example 2: Café ad typed without Azerbaijani letters (male, commercial, preset 10)
+# Example 2: Café ad typed without Azerbaijani letters (male, commercial, preset 10 Ceyhun)
 
 *Fictional café, address and phone number.*
 
@@ -10,7 +10,7 @@
 
 Bu reklamdır (kommersiya), ona görə ElevenLabs-in pulsuz planı olmaz. Gemini və ya Azure istifadə et.
 
-Səs: Kişi · Stil: 10 Zarafatcıl Gənc Vloqer · 35 söz ≈ 15 s
+Səs: Kişi · Stil: 10 Ceyhun (zarafatcıl vloq) · 35 söz ≈ 15 s
 
 ```text
 Səhər yeməyi saat səkkizdən on bir otuza qədər! Çay və iki qutab, cəmi dörd manat əlli qəpik. Ünvan: Xətai prospekti, on beş. Sifariş: sıfır əlli beş, doqquz yüz səksən yeddi, altmış beş, qırx üç.

@@ -1,4 +1,4 @@
-# Example 3: Lesson in Cyrillic, long text split into chunks (female, preset 3)
+# Example 3: Lesson in Cyrillic, long text split into chunks (male, preset 3 Elvin)
 
 *Fictional teacher. The full lesson (≈ 640 words) is shortened here with […].*
 
@@ -10,7 +10,7 @@
 
 Mətni latın qrafikasına çevirdim. 4 hissəyə böldüm, hər biri ayrıca yaradılmalıdır, eyni səs və eyni stil ilə.
 
-Səs: Qadın · Stil: 3 Sakit Müəllimə (1,6 söz/s) · ≈ 640 söz ≈ 6 dəq 40 s
+Səs: Kişi · Stil: 3 Elvin (sakit müəllim) (1,6 söz/s) · ≈ 640 söz ≈ 6 dəq 40 s
 
 ```text
 Bu gün biz fotosintez haqqında danışacağıq. Bitki günəş işığından, sudan və karbon qazından qida hazırlayır. Bu proses yarpaqlarda baş verir və altı molekul karbon qazı ilə altı molekul suyun birləşməsi ilə başlayır. […]
@@ -27,13 +27,13 @@ Dəyişikliklər: kiril → latın (bütün mətn) · һаггында → haqq�
 
 Every chunk ends at a paragraph end and stays under 2,000 characters, the Gemini limit.
 
-**Gemini (AI Studio):** 1) aistudio.google.com → Generate speech. 2) Səs: **Vindemiatrix** (kişi: Charon). Hər hissə üçün eyni stil sətrini yapışdır. 3) Run → yüklə → faylları 01, 02, 03, 04 adlandır və CapCut-da birləşdir.
+**Gemini (AI Studio):** 1) aistudio.google.com → Generate speech. 2) Səs: **Sadaltager** (qadın səsi istəsən: Vindemiatrix). Hər hissə üçün eyni stil sətrini yapışdır. 3) Run → yüklə → faylları 01, 02, 03, 04 adlandır və CapCut-da birləşdir.
 
 ```
-Azerbaijani, native Baku accent. Calm, patient, friendly female teacher. Moderate pace about 95 words per minute, clear articulation, longer pause between steps, gentle stress on key terms:
+Azerbaijani with a native Baku accent (not Turkish). Calm, patient, friendly male teacher. Moderate pace about 95 words per minute, clear articulation, longer pause between steps, gentle stress on key terms:
 <Hissə 1 mətni>
 ```
 
-Kommersiya: dərs pulludursa, kommersiya istifadəsi sayılır. Gemini-nin şərtləri buna qadağa qoymur, amma məlumatlar Google tərəfindən istifadə oluna bilər. Azure F0-da Banu səsi kommersiya üçün təhlükəsizdir.
+Kommersiya: dərs pulludursa, kommersiya istifadəsi sayılır. Gemini-nin şərtləri buna qadağa qoymur, amma məlumatlar Google tərəfindən istifadə oluna bilər. Azure F0-da Babek səsi kommersiya üçün təhlükəsizdir.
 
 Dinləyəndə xüsusilə yoxla: "ə" səsi "e" kimi oxunurmu, terminlərdə vurğu düzgündürmü (fotosintez, xlorofil). Hissələrin keçidində səs eyni qalırmı?

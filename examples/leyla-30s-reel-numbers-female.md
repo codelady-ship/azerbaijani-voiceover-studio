@@ -1,4 +1,4 @@
-# Example 1: 30-second Reel with numbers and emoji (female, preset 1)
+# Example 1: 30-second Reel with numbers and emoji (female, preset 1 Aysel)
 
 *Fictional user and figures. The statistic is made up for the example.*
 
@@ -10,7 +10,7 @@
 
 Mətni kopyala → AI Studio-da **Sulafat** səsini seç → aşağıdakı bloku yapışdır.
 
-Səs: Qadın · Stil: 1 Səmimi Bələdçi · 43 söz ≈ 26,5 s (büdcə: 30 s ≈ 57 söz: uyğundur)
+Səs: Qadın · Stil: 1 Aysel (səmimi bələdçi) · 43 söz ≈ 26,5 s (büdcə: 30 s ≈ 57 söz: uyğundur)
 
 ```text
 Bilirdinmi? Azərbaycanda iki min iyirmi beşinci ildə bir milyon iki yüz min nəfər onlayn kursa yazılıb. Amma onların yetmiş faizi kursu bitirmir. Səbəb? Plan yoxdur. Bizim dörd həftəlik planla hər gün cəmi iyirmi dəqiqə ayır. Qeydiyyat bir dekabra qədər pulsuzdur. Linki bioda tap!
