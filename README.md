@@ -7,7 +7,7 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
 [![Price: Free](https://img.shields.io/badge/price-free-brightgreen.svg)](#pricing)
 
-> **Compatibility:** works in any agent that reads `SKILL.md`. No web access or code execution needed. The skill does **not** create audio. It prepares the text and settings, and you generate the audio for free in Google AI Studio, ElevenLabs or Azure.
+> **Compatibility:** works in any agent that reads `SKILL.md`. Text and settings work in any agent. Where the agent can run code (Claude Code), the skill also **creates the audio file** (WAV/MP3) with `scripts/tts.mjs` and a free Gemini key; elsewhere you paste the ready block into Google AI Studio, ElevenLabs or Azure.
 
 ---
 
@@ -55,7 +55,8 @@ No existing voiceover skill handles Azerbaijani. The ones on skill marketplaces 
 
 ## What it never does
 
-- **Never claims to make audio.** You generate the MP3 yourself, for free.
+- **Makes the audio file** in Claude Code (`node scripts/tts.mjs --preset 1 --file metn.txt --out ses.mp3`, free key from https://aistudio.google.com/apikey in `GEMINI_API_KEY`). It never claims audio it did not make.
+- **Voice reviewer:** `node tests/voice-check.mjs` makes a sample for each of the 10 presets and checks audio, pace, words heard and an AI diction score.
 - **Never clones or imitates a real person's voice** (celebrity, blogger, client) without consent. It offers the closest preset, or legal cloning of your own voice.
 - **Never says a free tier allows commercial use** unless that engine's terms do.
 

@@ -3,6 +3,16 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-11-10
+
+### Added
+- **Audio file output.** `scripts/tts.mjs` turns TTS-ready text into a WAV (or MP3 with ffmpeg) with Gemini TTS: all 10 presets, other-gender voice, speed, emphasis, long texts chunked at sentence ends and joined in one voice. Free key from Google AI Studio in `GEMINI_API_KEY`; no dependencies (Node 18+).
+- **Announcer diction for every preset.** One shared `DICTION` line: Baku accent, standard orthoepy (final q near [x], soft final k, long double consonants and loanword vowels), no Turkish accent, natural rather than read-aloud.
+- **Voice reviewer** `tests/voice-check.mjs`: one sample per preset (`--both` for the other gender too), checks audio level, clipping, dead air, pace against the preset, words heard via Gemini transcription (90 % minimum) and an advisory AI diction score; writes `report.md`.
+
+### Changed
+- Golden rule 1: the skill makes audio when the environment can run code with network and a key is set, and still never claims audio it did not make.
+
 ## [1.2.0] - 2026-11-10
 
 ### Added
