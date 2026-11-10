@@ -89,7 +89,7 @@ Works fully on the Free plan, with no web search and no scheduled tasks needed: 
 - **Brands / foreign words:** respell for Azerbaijani reading and list the change: iPhone → Ayfon, WhatsApp → Vatsap, Instagram → İnstaqram, YouTube → Yutub, Google → Qugl, email → imeyl, online → onlayn. Mention the user can keep the original spelling for Gemini/ElevenLabs and test.
 - **Colons and labels:** no `:` in the TTS text. "Ünvan: Nizami küç. 12" → "Ünvan, Nizami küçəsi, on iki."; "Tel:" → "Telefon," (or "Zəng edin,"). A colon before a list becomes a comma or full stop.
 - **Final self-check:** before answering, scan the TTS text for digits and `% $ € ₼ + / : # @ &` and emoji; none may remain.
-- **Emoji, symbols, links:** remove emoji (say the meaning in words if it matters); & → və; + → artı; # → heşteq; don't read URLs or e-mails in full ("link bioda"). Never voice an @handle or hashtag name: keep it on screen and say "bizi İnstaqramda izləyin" or "link bioda" in the audio; list it in the changes.
+- **Emoji, symbols, links:** remove emoji (say the meaning in words if it matters); & → və; + → artı; # → heşteq; don't read URLs or e-mails in full ("link bioda"). Never voice an @handle or hashtag name: keep it on screen and say "bizi İnstaqramda izləyin" (keep the user's word order) or "link bioda" in the audio; list it in the changes.
 
 ## Pauses and melody
 
