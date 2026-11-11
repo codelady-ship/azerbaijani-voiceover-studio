@@ -110,7 +110,7 @@ Per Anthropic's help centre (checked 2026-11-09): "Skills are available for user
 ./scripts/build-agensi-zip.ps1
 ```
 
-This writes `dist/azerbaijani-voiceover-studio.zip`, which contains only `SKILL.md`, `templates/`, `examples/`, `CHANGELOG.md` and `scripts/tts.mjs` (standalone, about 15 KB, no dependencies). `tests/` stays on GitHub only.
+This writes `dist/azerbaijani-voiceover-studio.zip`, which contains only `SKILL.md`, `templates/`, `examples/`, `CHANGELOG.md` and `scripts/tts.mjs` (standalone, under 20 KB, no dependencies). `tests/` stays on GitHub only.
 
 For the Agensi listing, declare under **Needs access to**: network access to `generativelanguage.googleapis.com` (only when the user asks for an audio file) and the `GEMINI_API_KEY` environment variable. The scan may flag "environment variable + network"; the explanation for the reviewer: the script reads only the user's own Gemini key, sends it only in the request header to Google, and never prints or stores it. Compatibility note: "Text output works everywhere. The audio file needs an agent that can run Node with network access."
 

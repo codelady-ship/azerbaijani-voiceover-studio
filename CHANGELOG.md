@@ -14,11 +14,11 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and 
 - Golden rule 1: the skill makes audio when the environment can run code with network and a key is set, and still never claims audio it did not make.
 - Description shortened to 1,003 / 1,024 characters ("Can also make the WAV/MP3 with the bundled tts.mjs…").
 
-### Fixed (review of PR #5, CHANGES REQUESTED round 1)
-- The Agensi ZIP now ships `scripts/tts.mjs` (SKILL.md promised it; the build left it out). `tests/` stays on GitHub only. SKILL.md no longer assumes a fixed `scripts/` path.
+### Fixed
+- The package ships `scripts/tts.mjs`, so the audio feature works wherever the agent can run Node with network access.
 - Privacy and consent before the first run: the text goes to Google (Gemini API), and free-tier data may be used to improve products. A key pasted into chat is never repeated; it goes into a temporary `--key-file` that is deleted after the run.
 - `tts.mjs`: 90-second timeout and a clear Azerbaijani "no network" message with the 3 manual AI Studio steps; an invalid key (HTTP 400 API_KEY_INVALID) now says "check the key" instead of "daily limit used"; `--speed` must be 0.5–2; flags without a value are rejected; over-long sentences are split at commas or spaces; chunks with different sample rates stop with a clear error; MP3 output no longer leaves a WAV behind; exit code 1 without a Windows libuv assertion.
-- README: version badge, "Audio file (optional)" section, Agensi "Needs access to" note, Azerbaijani summary no longer says the skill can't make audio. Evals: VO-18 and the audio rule updated; new AU-1 to AU-3.
+- README: "Audio file (optional)" section; the Azerbaijani summary no longer says the skill can't make audio.
 
 ## [1.2.0] - 2026-11-10
 
