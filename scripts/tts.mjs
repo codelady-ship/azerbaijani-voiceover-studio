@@ -12,7 +12,7 @@
 // Long texts are split at sentence ends into chunks under --chunk characters and joined
 // with a short pause, all in the same voice and style line.
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, unlinkSync, renameSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { extname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -68,9 +68,25 @@ export function voiceFor(id, gender) {
   return !gender || gender === p.g ? p.voice : p.alt;
 }
 
+/** Split a piece longer than `max` at a comma or semicolon, then a space, then hard. */
+function split(piece, max) {
+  const out = [];
+  let rest = piece;
+  while (rest.length > max) {
+    const head = rest.slice(0, max);
+    let cut = Math.max(head.lastIndexOf(', '), head.lastIndexOf('; '));
+    if (cut < max / 3) cut = head.lastIndexOf(' ');
+    if (cut < max / 3) cut = max - 1;
+    out.push(rest.slice(0, cut + 1));
+    rest = rest.slice(cut + 1);
+  }
+  if (rest) out.push(rest);
+  return out;
+}
+
 /** Split at sentence ends into chunks of at most `max` characters. */
 export function chunk(text, max = 1800) {
-  const sentences = text.replace(/\s+/g, ' ').trim().match(/[^.!?…]+[.!?…]*\s*/g) || [];
+  const sentences = (text.replace(/\s+/g, ' ').trim().match(/[^.!?…]+[.!?…]*\s*/g) || []).flatMap((s) => split(s, max));
   const out = [];
   let cur = '';
   for (const s of sentences) {
@@ -81,12 +97,23 @@ export function chunk(text, max = 1800) {
   return out;
 }
 
+export const NETWORK_HELP =
+  'Şəbəkə bağlıdır və ya Gemini cavab vermir (generativelanguage.googleapis.com). ' +
+  'Səsi əl ilə alın: 1) aistudio.google.com açın, "Generate speech" seçin; ' +
+  '2) SKILL.md-dəki Gemini blokunu (üslub + mətn) yapışdırın və səsi seçin; 3) "Run" basın və faylı yükləyin.';
+
 async function post(model, key, body) {
-  return fetch(`${BASE}${encodeURIComponent(model)}:generateContent`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
-    body: JSON.stringify(body)
-  });
+  try {
+    return await fetch(`${BASE}${encodeURIComponent(model)}:generateContent`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(90000)
+    });
+  } catch {
+    // Blocked sandbox, DNS failure or timeout. Never print the request: it carries the key.
+    throw new Error(NETWORK_HELP);
+  }
 }
 
 /**
@@ -149,10 +176,13 @@ async function synthesizeOnce(text, { id, gender, key, speed, emphasis, models =
         return { pcm: raw.subarray(0, raw.length - (raw.length % 2)), rate, model };
       }
       const status = res.status;
-      await res.text().catch(() => '');
+      const detail = await res.text().catch(() => ''); // read only to classify, never printed
+      if (/API_KEY_INVALID|API key not valid|API key expired/i.test(detail)) {
+        throw new Error('Gemini açarı qəbul etmədi. GEMINI_API_KEY-i yoxlayın (aistudio.google.com/apikey).');
+      }
       errors.push(`${model}: HTTP ${status}`);
       if (status === 400 || status === 401 || status === 403) {
-        if (status !== 400) throw new Error(`Gemini refused the key (HTTP ${status}). Check GEMINI_API_KEY.`);
+        if (status !== 400) throw new Error(`Gemini açarı qəbul etmədi (HTTP ${status}). GEMINI_API_KEY-i yoxlayın.`);
         break;
       }
       if (status === 404) break;
@@ -186,15 +216,19 @@ export function pcmToWav(pcm, rate) {
 export async function textToWav(text, opts) {
   const parts = chunk(text, opts.chunk || 1800);
   const pcms = [];
-  let rate = 24000;
+  let rate = 0;
   const used = new Set();
   for (const [i, c] of parts.entries()) {
     const r = await synthesize(c, opts);
+    if (rate && r.rate !== rate) {
+      throw new Error(`Hissələr fərqli tezlikdə gəldi (${rate} və ${r.rate} Hz). GEMINI_TTS_MODELS ilə tək model seçin.`);
+    }
     rate = r.rate; used.add(r.model);
     if (i) pcms.push(Buffer.alloc(Math.round((rate * (opts.gapMs ?? 350)) / 1000) * 2));
     pcms.push(r.pcm);
     if (opts.onChunk) opts.onChunk(i + 1, parts.length, r.model);
   }
+  rate = rate || 24000;
   return { wav: pcmToWav(Buffer.concat(pcms), rate), rate, chunks: parts.length, models: [...used] };
 }
 
@@ -217,29 +251,40 @@ async function main() {
     console.log('Adlar uydurma üslub adlarıdır, real insanların səsi deyil.');
     return;
   }
+  for (const k of ['preset', 'text', 'file', 'key-file', 'out', 'gender', 'speed', 'emphasis', 'chunk']) {
+    if (a[k] === true) throw new Error(`--${k} üçün dəyər yazın`);
+  }
   const id = Number(a.preset || 1);
   if (!PRESETS[id]) throw new Error('--preset 1-10 olmalıdır');
   const text = a.file ? readFileSync(a.file, 'utf8') : typeof a.text === 'string' ? a.text : '';
   if (!text.trim()) throw new Error('Mətn yoxdur: --text "..." və ya --file metn.txt');
   if (/\d/.test(text)) console.error('Xəbərdarlıq: mətndə rəqəm var. Əvvəlcə rəqəmləri sözlə yazın (SKILL.md, Normalisation).');
+  const speed = a.speed === undefined ? 1 : Number(a.speed);
+  if (!Number.isFinite(speed) || speed < 0.5 || speed > 2) throw new Error('--speed 0.5 ilə 2 arasında olmalıdır');
   const key = a['key-file'] ? readFileSync(a['key-file'], 'utf8').trim() : process.env.GEMINI_API_KEY;
-  if (!key) throw new Error('GEMINI_API_KEY yoxdur. Pulsuz açar: https://aistudio.google.com/apikey (README, "Səs faylı").');
+  if (!key) throw new Error('GEMINI_API_KEY yoxdur. Pulsuz açar: https://aistudio.google.com/apikey (README, "Audio file (optional)").');
   const out = a.out || `seslendirme-${id}.wav`;
   const gender = a.gender === 'f' || a.gender === 'm' ? a.gender : undefined;
   const r = await textToWav(text, {
     id, gender, key,
-    speed: a.speed ? Number(a.speed) : 1,
+    speed,
+    chunk: a.chunk ? Math.max(200, Number(a.chunk) || 1800) : undefined,
     emphasis: typeof a.emphasis === 'string' ? a.emphasis.split(',').map((s) => s.trim()) : [],
     onChunk: (i, n, m) => console.error(`hissə ${i}/${n} hazırdır (${m})`),
     onRetry: (sec, lim) => console.error(`səs çox uzundur (${Math.round(sec)} s, gözlənilən ${Math.round(lim)} s-dən az), yenidən cəhd`)
   });
-  const wavPath = extname(out).toLowerCase() === '.mp3' ? out.replace(/\.mp3$/i, '.wav') : out;
+  const mp3 = extname(out).toLowerCase() === '.mp3';
+  const wavPath = mp3 ? out.replace(/\.mp3$/i, `.tmp-${process.pid}.wav`) : out;
   writeFileSync(wavPath, r.wav);
   let final = wavPath;
-  if (extname(out).toLowerCase() === '.mp3') {
+  if (mp3) {
     const ff = spawnSync('ffmpeg', ['-v', 'error', '-y', '-i', wavPath, '-codec:a', 'libmp3lame', '-b:a', '192k', out]);
-    if (ff.status === 0 && existsSync(out)) final = out;
-    else console.error('ffmpeg tapılmadı və ya xəta verdi: WAV saxlanıldı.');
+    if (ff.status === 0 && existsSync(out)) { unlinkSync(wavPath); final = out; }
+    else {
+      final = out.replace(/\.mp3$/i, '.wav');
+      renameSync(wavPath, final);
+      console.error('ffmpeg tapılmadı və ya xəta verdi: WAV saxlanıldı.');
+    }
   }
   const seconds = (r.wav.length - 44) / 2 / r.rate;
   const p = PRESETS[id];
@@ -247,5 +292,5 @@ async function main() {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main().catch((e) => { console.error(e.message); process.exit(1); });
+  main().catch((e) => { console.error(e.message); process.exitCode = 1; });
 }
