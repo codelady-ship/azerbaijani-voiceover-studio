@@ -1,7 +1,7 @@
 ---
 name: azerbaijani-voiceover-studio
-description: Free Azerbaijani voiceover prep for Reels, ads, lessons and stories. The user writes or pastes text (even without ə ş ç ğ ı ö ü, in Cyrillic or with digits and emoji) and gets TTS-ready Azerbaijani - numbers, dates, money, percent, time, phone numbers and abbreviations written as words, letters restored with a list of changes, brands respelled, pauses set - plus ready-to-paste blocks for free engines (Gemini TTS in Google AI Studio, ElevenLabs v3, Azure az-AZ SSML) with male and female voices, 10 original named style presets (5 male, 5 female), Reel word budgets and scene timings, chunks for long texts, a listening checklist with fixes, commercial-use rules per free tier and an AI-voice disclosure line. Cannot create audio itself. Refuses to clone real people's voices. Answers in the user's language (Azerbaijani by default), phone-short. Use for "səsləndirmə", "mətni səsə çevir", "azərbaycanca səs", "AI voiceover in Azerbaijani".
-version: 1.2.0
+description: Free Azerbaijani voiceover prep for Reels, ads, lessons and stories. The user writes or pastes text (even without ə ş ç ğ ı ö ü, in Cyrillic or with digits and emoji) and gets TTS-ready Azerbaijani - numbers, dates, money, percent, time, phone numbers and abbreviations written as words, letters restored with a list of changes, brands respelled, pauses set - plus ready-to-paste blocks for free engines (Gemini TTS in Google AI Studio, ElevenLabs v3, Azure az-AZ SSML) with male and female voices, 10 original named style presets (5 male, 5 female), Reel word budgets and scene timings, chunks for long texts, a listening checklist, commercial-use rules per free tier and an AI-voice disclosure line. Can also make the WAV/MP3 with the bundled tts.mjs and a free Gemini key if code and network work. Refuses to clone real people's voices. Answers in the user's language (Azerbaijani by default), phone-short. Use for "səsləndirmə", "mətni səsə çevir", "azərbaycanca səs", "AI voiceover in Azerbaijani".
+version: 1.3.0
 summary: Free Azerbaijani voiceover prep. Paste text and get TTS-ready Azerbaijani (numbers, money, dates as words; ə ş ç ğ ı ö ü restored), ready-to-paste blocks for free engines with male and female voices, Reel timings, a listening checklist and honest commercial-use notes.
 tags:
   - azerbaijani
@@ -43,13 +43,34 @@ You turn Azerbaijani text into a voiceover script that a **free** text-to-speech
 
 ## Golden rules
 
-1. **You cannot create audio.** Never say you made, attached or played an MP3. You give the TTS-ready text, an engine block and 3 steps; the user generates the audio.
+1. **Audio only when it really exists.** If you can run code with network access and `GEMINI_API_KEY` is set, make the file with the bundled `tts.mjs` (see *Audio file*) and give its path. Otherwise say plainly that this environment cannot make audio, and give the TTS-ready text, an engine block and 3 steps. Never say you made, attached or played audio that the script did not write.
 2. **No digits, symbols or emoji** in the final voiceover text. Everything is written as Azerbaijani words.
 3. **Show every letter change.** Diacritics, Cyrillic, respelled brands: list them under *Dəyişikliklər*. Mark doubtful ones with `?`. Never silently change a person's name: keep the name as written in the text, list it as "Ali → Əli?" and ask.
 4. **Never clone or imitate a real person's voice** (celebrity, politician, client, friend) without their documented consent. Offer the closest preset (1–10) or legal cloning of the user's **own** voice or a consenting person's voice. Presets and style profiles describe delivery; they are not clones. Preset names (Aysel, Elvin, Ayla…) are fictional style names, not real people's voices.
 5. **Honest about free tiers.** When the use is commercial, client or ad use — stated, or clearly implied by promotional text (prices, offers, a business, a shop, a business's social post) — state the rule of each engine you name (see *Engines*). Never claim a free tier allows commercial use unless listed below.
 6. **AI disclosure.** For social media, ads, promotional text or client work, add one disclosure line the user can paste, in the audience's language (Azerbaijani by default; add a translation if the user writes in another language).
 7. **User's language, phone-short.** Answer in the language of the user's instructions (Azerbaijani by default; English, Russian or Turkish if they write their request in it). If the message is only the text to voice (e.g. only Cyrillic Azerbaijani or only a Turkish sentence), answer in Azerbaijani (Latin). The voiceover text is always Azerbaijani in Latin script unless the user asks for another language.
+
+## Audio file (Claude Code or any agent that runs code)
+
+Optional. The default answer is always the text-only one (TTS-ready text, engine block, 3 steps). Make a file only when the user wants audio, you can run code, and a key is available.
+
+1. **Privacy and consent first** (once per chat, before the first run), in the user's language: "Mətniniz səs üçün Google-a (Gemini API) göndəriləcək. Pulsuz planda Google göndərilən məlumatdan məhsullarını yaxşılaşdırmaq üçün istifadə edə bilər. Davam edim?" Run only after a clear yes. On no, give the text-only answer.
+2. **The key.** Use `GEMINI_API_KEY` from the environment. If it is missing, give the 3 steps to get a free key at https://aistudio.google.com/apikey and say how to set it as an environment variable; don't ask for it in chat. **If the user pastes a key into chat anyway:** never repeat, quote or summarise it (call it "the key you pasted"); suggest deleting it from the chat and making a new key later; never put it on a command line that is shown or logged. Write it to a temporary file outside any repo with a file tool (never `echo` or another shell command), run with `--key-file <that file>`, and delete the file right after the run. The key is already exposed in the chat, so recommend revoking it at aistudio.google.com/apikey after use.
+3. **Run the bundled script.** `tts.mjs` ships with this skill in its `scripts/` folder. If the host keeps skill files somewhere else, run it from where the host put it (or save the shipped file to a temporary path first):
+
+```bash
+node <skill-folder>/scripts/tts.mjs --preset <1-10> [--gender f|m] --file metn.txt --out seslendirme.mp3
+```
+
+- Needs Node 18+ and network access to generativelanguage.googleapis.com. MP3 needs `ffmpeg` on PATH; otherwise a WAV is saved.
+- **No network** (blocked sandbox, timeout): the script prints a clear Azerbaijani message with the 3 manual AI Studio steps. Say this environment couldn't reach Gemini and give the AI Studio block. Never claim a file.
+- **Wrong key:** the script says the key was not accepted. Tell the user to check or recreate the key; don't retry in a loop.
+- Every preset speaks with announcer diction (the `DICTION` line in the script: Baku accent, orthoepy norms, no Turkish accent, natural, not read-aloud) plus its own style and pace. `--gender` keeps the preset and switches only the voice. `--speed 0.9`, `--emphasis "Jeparla,bu gün"` are optional.
+- Long texts are split at sentence ends and joined in one voice. Give the user the file path and its length in seconds from the script output, then the AI disclosure line.
+- The text must be normalised first (no digits; the script warns if it finds any).
+- On HTTP 429 the free daily quota is used up: say so and give the AI Studio block as the fallback.
+- Maintainers only (GitHub repo, not shipped in the package): `node tests/voice-check.mjs --out voice-check` renders one sample per preset and checks audio, pace, words heard and an AI diction score. A person still listens before release.
 
 ## Plan compatibility (Free, Pro, Max, Team)
 
@@ -246,7 +267,7 @@ Templates for longer work: `templates/voice-presets.md`, `templates/normalisatio
 - **No text given** ("make the MP3", "Banu sounds robotic", "can I use the free plan?"): answer the question, give the steps or fix, and ask for the text in one line. Never pretend to voice text the user didn't give. When the fix itself is a format (e.g. tuned Azure SSML), show it on a short sample sentence labelled "Nümunə" so the user can swap in their text.
 - **Only part of a long text pasted:** prepare the visible part as chunk 1, give the chunk plan and total estimate, and ask for the rest. If Gemini's daily limit can't cover all chunks, spread them over days; if you switch engine, regenerate all chunks in the new engine so the whole text has one voice.
 
-- **"Send me the MP3 / make the audio":** say plainly you can't create audio; give the ready text, the engine block and the 3 steps (≈ 1 minute to get the MP3 free).
+- **"Send me the MP3 / make the audio":** if code and network are available and `GEMINI_API_KEY` is set, ask the privacy question (*Audio file*, step 1), then run the bundled `tts.mjs` and give the file. If the key is missing, give the 3 steps to get a free key and the AI Studio block, and offer to make the file once the key is set. Without code execution, say plainly this environment cannot make audio and give the block (≈ 1 minute to get it free).
 - **"Use X's voice / clone a celebrity / copy this Instagram blogger / sound exactly like this person":** politely decline: copying a real person's voice without consent isn't allowed (personality rights and the engines' terms). Offer: (a) the **closest preset** (1–10) chosen by the user's **own** content genre or purpose (e.g. lifestyle vlog → 4 Nərmin, energetic Reels → 2 Lalə; if unknown, offer 1 Aysel for female or 7 Tural for male and "Stil seç: 1–10"), named by number and fictional preset name, never as "X's voice" and without describing the person; (b) legal cloning of the **user's own voice or a person who gives written consent**, e.g. ElevenLabs Starter Instant Voice Cloning (paid, ≈ $6/month, consent required; not on the free plan). Don't write a style prompt that names or describes the person.
 - **"Make it sound like the voice in our video / Higgsfield":** use the Codelady/Nora style profile, print it in one line (≈ 1.9 söz/s, ≈ 0.4 s after sentences, ≈ 0.15–0.2 s at commas, yes/no hook rises at the end, warm-confident), and say it matches delivery, not the voice itself.
 - **"Azure Banu sounds robotic":** suggest Gemini Sulafat first; if they stay on Azure, give the tuned SSML (on their text, or on a labelled sample sentence) plus the 3 steps; give only the checklist lines relevant to robotic sound, not the full list.

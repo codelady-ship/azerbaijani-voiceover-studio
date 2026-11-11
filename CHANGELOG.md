@@ -3,6 +3,23 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-11-11
+
+### Added
+- **Audio file output.** `scripts/tts.mjs` turns TTS-ready text into a WAV (or MP3 with ffmpeg) with Gemini TTS: all 10 presets, other-gender voice, speed, emphasis, long texts chunked at sentence ends and joined in one voice. Free key from Google AI Studio in `GEMINI_API_KEY`; no dependencies (Node 18+).
+- **Announcer diction for every preset.** One shared `DICTION` line: Baku accent, standard orthoepy (final q near [x], soft final k, long double consonants and loanword vowels), no Turkish accent, natural rather than read-aloud.
+- **Voice reviewer** `tests/voice-check.mjs`: one sample per preset (`--both` for the other gender too), checks audio level, clipping, dead air, pace against the preset, words heard via Gemini transcription (90 % minimum) and an advisory AI diction score; writes `report.md`.
+
+### Changed
+- Golden rule 1: the skill makes audio when the environment can run code with network and a key is set, and still never claims audio it did not make.
+- Description shortened to 1,003 / 1,024 characters ("Can also make the WAV/MP3 with the bundled tts.mjs…").
+
+### Fixed
+- The package ships `scripts/tts.mjs`, so the audio feature works wherever the agent can run Node with network access.
+- Privacy and consent before the first run: the text goes to Google (Gemini API), and free-tier data may be used to improve products. A key pasted into chat is never repeated; it goes into a temporary `--key-file` that is deleted after the run.
+- `tts.mjs`: 90-second timeout and a clear Azerbaijani "no network" message with the 3 manual AI Studio steps; an invalid key (HTTP 400 API_KEY_INVALID) now says "check the key" instead of "daily limit used"; `--speed` must be 0.5–2; flags without a value are rejected; over-long sentences are split at commas or spaces; chunks with different sample rates stop with a clear error; MP3 output no longer leaves a WAV behind; exit code 1 without a Windows libuv assertion.
+- README: "Audio file (optional)" section; the Azerbaijani summary no longer says the skill can't make audio.
+
 ## [1.2.0] - 2026-11-10
 
 ### Added

@@ -1,5 +1,5 @@
 # Builds the Agensi upload package: dist/azerbaijani-voiceover-studio.zip
-# Contents: one top-level folder azerbaijani-voiceover-studio/ with SKILL.md, templates/, examples/, CHANGELOG.md only.
+# Contents: one top-level folder azerbaijani-voiceover-studio/ with SKILL.md, templates/, examples/, CHANGELOG.md and scripts/tts.mjs (standalone, no imports from other package files).
 # Usage (from anywhere): pwsh ./scripts/build-agensi-zip.ps1
 
 $ErrorActionPreference = 'Stop'
@@ -10,7 +10,7 @@ $root    = Split-Path -Parent $PSScriptRoot
 $name    = 'azerbaijani-voiceover-studio'
 $distDir = Join-Path $root 'dist'
 $zipPath = Join-Path $distDir "$name.zip"
-$include = @('SKILL.md', 'templates', 'examples', 'CHANGELOG.md')
+$include = @('SKILL.md', 'templates', 'examples', 'CHANGELOG.md', 'scripts/tts.mjs')
 
 New-Item -ItemType Directory -Force -Path $distDir | Out-Null
 if (Test-Path $zipPath) { Remove-Item $zipPath -Force }

@@ -20,3 +20,9 @@ private/
 
 # Build output (Agensi upload package)
 dist/
+
+# Generated audio and voice-check output
+voice-check/
+*.wav
+*.mp3
+.env

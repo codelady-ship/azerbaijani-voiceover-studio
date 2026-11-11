@@ -4,10 +4,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-D97757.svg)](SKILL.md)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](CHANGELOG.md)
 [![Price: Free](https://img.shields.io/badge/price-free-brightgreen.svg)](#pricing)
 
-> **Compatibility:** works in any agent that reads `SKILL.md`. No web access or code execution needed. The skill does **not** create audio. It prepares the text and settings, and you generate the audio for free in Google AI Studio, ElevenLabs or Azure.
+> **Compatibility:** works in any agent that reads `SKILL.md`. Text and settings work in any agent. Where the agent can run code (Claude Code), the skill also **creates the audio file** (WAV/MP3) with `scripts/tts.mjs` and a free Gemini key; elsewhere you paste the ready block into Google AI Studio, ElevenLabs or Azure.
 
 ---
 
@@ -55,7 +55,8 @@ No existing voiceover skill handles Azerbaijani. The ones on skill marketplaces 
 
 ## What it never does
 
-- **Never claims to make audio.** You generate the MP3 yourself, for free.
+- **Makes the audio file** in Claude Code (`node scripts/tts.mjs --preset 1 --file metn.txt --out ses.mp3`, free key from https://aistudio.google.com/apikey in `GEMINI_API_KEY`). It never claims audio it did not make.
+- **Voice reviewer:** `node tests/voice-check.mjs` makes a sample for each of the 10 presets and checks audio, pace, words heard and an AI diction score.
 - **Never clones or imitates a real person's voice** (celebrity, blogger, client) without consent. It offers the closest preset, or legal cloning of your own voice.
 - **Never says a free tier allows commercial use** unless that engine's terms do.
 
@@ -109,7 +110,19 @@ Per Anthropic's help centre (checked 2026-11-09): "Skills are available for user
 ./scripts/build-agensi-zip.ps1
 ```
 
-This writes `dist/azerbaijani-voiceover-studio.zip`, which contains only `SKILL.md`, `templates/`, `examples/` and `CHANGELOG.md`.
+This writes `dist/azerbaijani-voiceover-studio.zip`, which contains only `SKILL.md`, `templates/`, `examples/`, `CHANGELOG.md` and `scripts/tts.mjs` (standalone, under 20 KB, no dependencies). `tests/` stays on GitHub only.
+
+For the Agensi listing, declare under **Needs access to**: network access to `generativelanguage.googleapis.com` (only when the user asks for an audio file) and the `GEMINI_API_KEY` environment variable. The scan may flag "environment variable + network"; the explanation for the reviewer: the script reads only the user's own Gemini key, sends it only in the request header to Google, and never prints or stores it. Compatibility note: "Text output works everywhere. The audio file needs an agent that can run Node with network access."
+
+## Audio file (optional)
+
+The skill always gives the TTS-ready text and a ready-to-paste engine block. If your agent can run code with network access, it can also make the file:
+
+1. Get a free key at https://aistudio.google.com/apikey and set it as the `GEMINI_API_KEY` environment variable. Don't paste it into the chat.
+2. Ask for audio. The skill tells you first that the text is sent to Google (Gemini API) and asks for your OK.
+3. It runs `node scripts/tts.mjs --preset 1 --file metn.txt --out ses.mp3` (MP3 needs ffmpeg; otherwise WAV).
+
+If the network is blocked or the key is wrong, the script says so in plain Azerbaijani and the skill gives the manual AI Studio steps instead.
 
 ## Repository layout
 
@@ -144,7 +157,7 @@ This writes `dist/azerbaijani-voiceover-studio.zip`, which contains only `SKILL.
 - **Dinləmə siyahısı:** səsi yoxlamaq üçün siyahı və hər problemin həlli.
 - **Kommersiya qaydaları:** pulsuz planın reklamda istifadəyə icazə verib-vermədiyini açıq deyir.
 
-Skill səs faylı yaratmır. Səsi sən 1 dəqiqəyə pulsuz yaradırsan. Real insanın (məşhurun, blogerin) səsini icazəsiz kopyalamır.
+Skill hər dəfə hazır mətni və kopyala-yapışdır blokunu verir. Agent kod işlədə bilirsə və pulsuz Gemini açarın varsa, səs faylını (WAV/MP3) özü də yarada bilər. Əvvəlcə mətnin Google-a göndəriləcəyini deyib icazə soruşur. Yoxdursa, səsi sən 1 dəqiqəyə pulsuz yaradırsan. Real insanın (məşhurun, blogerin) səsini icazəsiz kopyalamır.
 
 **Başlamaq üçün:** "Bu mətni qadın səsi ilə 30 saniyəlik Reel üçün hazırla: …"
 
