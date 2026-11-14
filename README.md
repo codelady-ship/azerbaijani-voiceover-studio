@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Skill](https://img.shields.io/badge/Claude-Skill-D97757.svg)](SKILL.md)
-[![Version](https://img.shields.io/badge/version-1.3.0-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.3.1-blue.svg)](CHANGELOG.md)
 [![Price: Free](https://img.shields.io/badge/price-free-brightgreen.svg)](#pricing)
 
 > **Compatibility:** works in any agent that reads `SKILL.md`. Text and settings work in any agent. Where the agent can run code (Claude Code), the skill also **creates the audio file** (WAV/MP3) with `scripts/tts.mjs` and a free Gemini key; elsewhere you paste the ready block into Google AI Studio, ElevenLabs or Azure.
@@ -132,7 +132,7 @@ If the network is blocked or the key is wrong, the script says so in plain Azerb
 | `templates/` | Voice presets, orthoepy and liveliness rules, normalisation cheat sheet, engine blocks, style profiles, split template, listening checklist |
 | `examples/` | Three worked examples in Azerbaijani |
 | `docs/research.md` | Customer problems, competitors, engines, measurement |
-| `tests/evals.md` | 21 eval cases |
+| `tests/evals.md` | 33 eval cases (23 VO, 4 PN, 3 PC, 3 AU) |
 | `scripts/build-agensi-zip.ps1` | Builds the upload package |
 
 ## Limitations

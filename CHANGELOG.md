@@ -3,6 +3,13 @@
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.3.1] - 2026-11-14
+
+### Fixed
+- `tts.mjs`: the "no GEMINI_API_KEY" message pointed to the README, which is not in the package. It now gives the 3 steps to get and set a free key and points to SKILL.md, "Audio file (Claude Code or any agent that runs code)".
+- `tests/evals.md`: two acronym/handle cases added in 1.1.0 reused the IDs VO-15 and VO-16 inside the plan-compatibility table. They are now VO-22 and VO-23 in the main table; the pass mark says 23 VO cases.
+- README: the repository layout now says 33 eval cases (23 VO, 4 PN, 3 PC, 3 AU) instead of 21.
+
 ## [1.3.0] - 2026-11-11
 
 ### Added

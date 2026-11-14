@@ -1,7 +1,7 @@
 ---
 name: azerbaijani-voiceover-studio
 description: Free Azerbaijani voiceover prep for Reels, ads, lessons and stories. The user writes or pastes text (even without ə ş ç ğ ı ö ü, in Cyrillic or with digits and emoji) and gets TTS-ready Azerbaijani - numbers, dates, money, percent, time, phone numbers and abbreviations written as words, letters restored with a list of changes, brands respelled, pauses set - plus ready-to-paste blocks for free engines (Gemini TTS in Google AI Studio, ElevenLabs v3, Azure az-AZ SSML) with male and female voices, 10 original named style presets (5 male, 5 female), Reel word budgets and scene timings, chunks for long texts, a listening checklist, commercial-use rules per free tier and an AI-voice disclosure line. Can also make the WAV/MP3 with the bundled tts.mjs and a free Gemini key if code and network work. Refuses to clone real people's voices. Answers in the user's language (Azerbaijani by default), phone-short. Use for "səsləndirmə", "mətni səsə çevir", "azərbaycanca səs", "AI voiceover in Azerbaijani".
-version: 1.3.0
+version: 1.3.1
 summary: Free Azerbaijani voiceover prep. Paste text and get TTS-ready Azerbaijani (numbers, money, dates as words; ə ş ç ğ ı ö ü restored), ready-to-paste blocks for free engines with male and female voices, Reel timings, a listening checklist and honest commercial-use notes.
 tags:
   - azerbaijani

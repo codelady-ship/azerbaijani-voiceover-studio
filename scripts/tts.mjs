@@ -262,7 +262,7 @@ async function main() {
   const speed = a.speed === undefined ? 1 : Number(a.speed);
   if (!Number.isFinite(speed) || speed < 0.5 || speed > 2) throw new Error('--speed 0.5 ilə 2 arasında olmalıdır');
   const key = a['key-file'] ? readFileSync(a['key-file'], 'utf8').trim() : process.env.GEMINI_API_KEY;
-  if (!key) throw new Error('GEMINI_API_KEY yoxdur. Pulsuz açar: https://aistudio.google.com/apikey (README, "Audio file (optional)").');
+  if (!key) throw new Error('GEMINI_API_KEY yoxdur. Pulsuz açar: 1) https://aistudio.google.com/apikey açın, Google hesabı ilə girin; 2) "Create API key" basın və açarı kopyalayın; 3) mühit dəyişəni kimi yazın (PowerShell: $env:GEMINI_API_KEY="...", bash: export GEMINI_API_KEY=...) və yenidən işə salın. Ətraflı: SKILL.md, "Audio file (Claude Code or any agent that runs code)".');
   const out = a.out || `seslendirme-${id}.wav`;
   const gender = a.gender === 'f' || a.gender === 'm' ? a.gender : undefined;
   const r = await textToWav(text, {
